@@ -3,7 +3,7 @@ import time
 from to_log import to_log
 from selenium import webdriver
 from configFile import configuration
-from getConnectStatus import get_device_attribute
+from dmSupport import get_device_attribute
 
 
 # 打开浏览器
@@ -30,7 +30,7 @@ if start:
         nowTimestamp = time.strftime('%Y-%m-%d %H-%M-%S', time.localtime(time.time()))
         to_log(nowTimestamp)
         # 获取设备属性上传时间
-        dmTimestamp1 = get_device_attribute()
+        dmTimestamp1 = get_device_attribute('networkDeviceNo')['time']
         to_log(dmTimestamp1)
         if nowTimestamp[-3:] == dmTimestamp1[-3:]:
             to_log('第' + str(i + 1) + '配网成功 ^_^')
@@ -48,7 +48,7 @@ if start:
         # 配网时间
         time.sleep(15)
         # 获取设备属性上传时间
-        dmTimestamp2 = get_device_attribute()
+        dmTimestamp2 = get_device_attribute('networkDeviceNo')['time']
         print(dmTimestamp2)
 
         if dmTimestamp2[-3:] == dmTimestamp1[-3:]:
