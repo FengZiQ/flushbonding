@@ -1,14 +1,16 @@
 # coding=utf-8
+# 2018.04.13
+
 import requests
 import re
 from url_para import para
 from configFile import configuration
 
 
-def login_api():
+def login_sp_api():
     session = requests.session()
     # step1
-    url1 = configuration['casServer'] + 'login?service=' + configuration['dmServer']
+    url1 = configuration['casServer'] + 'login?service=' + configuration['spServer']
     headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Referer': url1,
@@ -40,10 +42,10 @@ def login_api():
     )
     location = content2.headers['location']
     session.get(location)
-    # userInfo = session.get(configuration['dmServer'] + 'userInfo')
+    # userInfo = session.get(configuration['spServer'] + 'userInfo')
 
     return session
 
 
 if __name__ == "__main__":
-    login_api()
+    login_sp_api()

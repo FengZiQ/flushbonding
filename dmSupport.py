@@ -30,6 +30,7 @@ def get_device_attribute(device_no):
         return result
     except:
         to_log('\n获取设备属性失败\n')
+        return {}
 
 
 # 设备升级
@@ -46,6 +47,6 @@ def send_upgrade_cmd(upgrade_id):
 
 
 if __name__ == "__main__":
-    print(get_device_attribute(configuration['upgradeDeviceNo'])['time'])
-    print(get_device_attribute(configuration['upgradeDeviceNo'])['time'])
+    print(get_device_attribute(configuration['upgradeDeviceNo']).get('time', '获取时间失败'))
+    print(get_device_attribute(configuration['upgradeDeviceNo']).get('time', '获取时间失败'))
 

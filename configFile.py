@@ -15,6 +15,11 @@ configuration = {
     # 图片地址
     'filePath': r'D:/script/flushbonding/',
     # dm server
-    'dmServer': 'http://dm.testing.inspos.cn/'
+    'dmServer': 'http://dm.preo.inspos.cn/',
+    # sp server
+    'spServer': 'http://spadmin.preo.2dupay.com/',
+    # cas server
+    'casServer': 'http://cas.preo.2dupay.com/',
+
 }
 

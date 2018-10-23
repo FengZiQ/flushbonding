@@ -30,7 +30,7 @@ if start:
         nowTimestamp = time.strftime('%Y-%m-%d %H-%M-%S', time.localtime(time.time()))
         to_log(nowTimestamp)
         # 获取设备属性上传时间
-        dmTimestamp1 = get_device_attribute('networkDeviceNo')['time']
+        dmTimestamp1 = get_device_attribute('networkDeviceNo').get('time', '获取时间失败')
         to_log(dmTimestamp1)
         if nowTimestamp[-3:] == dmTimestamp1[-3:]:
             to_log('第' + str(i + 1) + '配网成功 ^_^')
@@ -48,7 +48,7 @@ if start:
         # 配网时间
         time.sleep(15)
         # 获取设备属性上传时间
-        dmTimestamp2 = get_device_attribute('networkDeviceNo')['time']
+        dmTimestamp2 = get_device_attribute('networkDeviceNo').get('time', '获取时间失败')
         print(dmTimestamp2)
 
         if dmTimestamp2[-3:] == dmTimestamp1[-3:]:
