@@ -16,14 +16,14 @@ failCount = 0
 
 if start:
     to_log('***扫码后成功发起支付请求率测试***')
-    for i in range(configuration['scanTestTime']):
+    for i in range(50):
         bill1 = verbose_payment('4113180400130999')
         driver.get('file:///' + configuration['filePath'] + 'wxCode.png')
         time.sleep(1)
         driver.get('file:///' + configuration['filePath'] + 'blank.png')
-        time.sleep(5)
+        time.sleep(30)
         bill2 = verbose_payment('4113180400130999')
-        # print(logContent['lc'])
+        # print(len(bill1), len(bill2))
         if len(bill1) + 1 == len(bill2):
             to_log('第' + str(i+1) + '次扫码后发起支付请求成功 ^_^')
             passCount += 1
@@ -31,8 +31,8 @@ if start:
             to_log('第' + str(i+1) + '次扫码后发起支付请求失败 -_-')
             failCount += 1
 
-to_log('\n\n成功次数为：%d' % passCount)
-to_log('失败次数为：%d' % failCount)
-to_log('成功率：%d%s' % ((passCount/(passCount + failCount))*100, '%'))
+to_log('\n\n支付请求成功次数为：%d' % passCount)
+to_log('支付请求失败次数为：%d' % failCount)
+to_log('支付请求成功率：%d%s' % ((passCount/(passCount + failCount))*100, '%'))
 driver.close()
 

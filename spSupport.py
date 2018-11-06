@@ -14,7 +14,7 @@ def verbose_payment(device_no):
     timestamp = time.strftime('%Y-%m-%d', time.localtime(time.time()))
     url = 'order/pageList?customerId=5130&treeId=00010025002800010001&' + \
           'startDate=' + timestamp + '&endDate=' + timestamp +\
-          '&payStatus=4&serialNum=' + device_no
+          '&payStatus=4&pageIndex=1&pageSize=300&serialNum=' + device_no
     try:
         res = sp_session.get(
             configuration['spServer'] + url
@@ -27,5 +27,5 @@ def verbose_payment(device_no):
 
 
 if __name__ == "__main__":
-    print(verbose_payment('4113180400130999'))
+    print(len(verbose_payment('4113180400130999')))
 

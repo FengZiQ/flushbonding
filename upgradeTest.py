@@ -7,24 +7,25 @@ from dmSupport import get_device_attribute, send_upgrade_cmd
 passCount = 0
 failCount = 0
 to_log('***升级成功率测试***')
-for i in range(10):
+for i in range(20):
     # 获取升级前的设备属性
     a0 = get_device_attribute(configuration['upgradeDeviceNo'])
     to_log('第' + str(i+1) + '次升级前版本为：' + a0.get('sys.software.version', ''))
 
-    # 下发升级（93/128）
-    if i % 2 == 0:
-        send_upgrade_cmd('93')
+    # 下发升级（f[4.1.0.5]/839[4.1.0.8]）
+    if a0.get('sys.software.version', '') == '4.1.0.5':
+        send_upgrade_cmd('839')
+    elif a0.get('sys.software.version', '') == '':
+        to_log('获取设备属性失败！')
     else:
-        send_upgrade_cmd('128')
-    time.sleep(5)
+        send_upgrade_cmd('838')
+    time.sleep(15)
 
     # 升级过程等待20min，期间每个5秒获取一次设备属性
     # 如果最后一次属性上传时间与上次上传时间相等，则升级过程结束
     for ii in range(240):
         a1 = get_device_attribute(configuration['upgradeDeviceNo'])
-
-        if a1['time'] != a0['time']:
+        if a1.get('time', '1') != a0.get('time', ''):
             break
 
     # 升级完成后获取设备属性
