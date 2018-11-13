@@ -32,7 +32,7 @@ if start:
         # 获取设备属性上传时间
         dmTimestamp1 = get_device_attribute('networkDeviceNo').get('time', '获取时间失败')
         to_log(dmTimestamp1)
-        if nowTimestamp[-3:] == dmTimestamp1[-3:]:
+        if nowTimestamp[:-3] == dmTimestamp1[:-3]:
             to_log('第' + str(i + 1) + '配网成功 ^_^')
             passCount += 1
         else:
@@ -51,7 +51,7 @@ if start:
         dmTimestamp2 = get_device_attribute('networkDeviceNo').get('time', '获取时间失败')
         print(dmTimestamp2)
 
-        if dmTimestamp2[-3:] == dmTimestamp1[-3:]:
+        if dmTimestamp2[:-3] == dmTimestamp1[:-3]:
             to_log('第' + str(i + 1) + '断网成功 ^_^')
         else:
             to_log('第' + str(i + 1) + '断网失败 -_-')
