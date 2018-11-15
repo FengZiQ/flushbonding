@@ -86,6 +86,10 @@ def g3(pr=''):
         driver.maximize_window()
         driver.get('http://dm.2dupay.com/wifi-config/wifiConfig.html')
         sleep(3)
+        driver.find_element_by_id('net').click()
+        sleep(1)
+        driver.find_element_by_xpath('//option[@value="3G"]').click()
+        sleep(1)
         driver.find_element_by_id('pr').click()
         sleep(1)
         if pr:

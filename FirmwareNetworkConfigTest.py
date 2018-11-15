@@ -20,3 +20,6 @@ import wifiOfMobile
 
 # 断网重连
 import wifiBreakAndReconnection
+
+# 3G网络配置
+
