@@ -22,4 +22,4 @@ import wifiOfMobile
 import wifiBreakAndReconnection
 
 # 3G网络配置
-
+import g3Dhcp, g3DhcpUsb
