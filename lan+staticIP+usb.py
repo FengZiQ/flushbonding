@@ -6,23 +6,28 @@ from dmSupport import get_device_attribute
 from configFile import data_for_cases
 
 # 生成LAN+静态IP+USB网络配置二维码
-# lan_mode(
-#     pr='usb',
-#     ip=data_for_cases.get('ip'),
-#     mask=data_for_cases.get('mask'),
-#     gw=data_for_cases.get('gw'),
-#     dns=data_for_cases.get('dns')
-# )
+lan_mode(
+    pr='usb',
+    ip=data_for_cases.get('ip'),
+    mask=data_for_cases.get('mask'),
+    gw=data_for_cases.get('gw'),
+    dns=data_for_cases.get('dns')
+)
+
+# 配网时间
+time.sleep(10)
 
 # 获取系统当前时间
 nowTimestamp = time.strftime('%Y-%m-%d %H-%M-%S', time.localtime(time.time()))
 
 # 获取设备属性
 da = get_device_attribute(data_for_cases.get('deviceNo'))
+# 修正时间
+correction_time = nowTimestamp[:-4] + str(int(nowTimestamp[-4]) + 1)
 
-if nowTimestamp[:-3] == da.get('time', 'failed')[:-3]:
-    if da.get('persist.net.type') == 'eth' or da.get('persist.net.dhcp') == 'false':
-        to_log('LAN+静态IP+USB网络配置成功！')
+if da.get('time', 'failed')[:-3] == nowTimestamp[:-3] or da.get('time', 'failed')[:-3] == correction_time:
+    if da.get('persist.net.type') == 'eth' and da.get('persist.net.dhcp') == 'false':
+        to_log('LAN+静态IP+USB网络配置测试Pass\n')
         to_log('配网方式：'+da.get('persist.net.type'))
         to_log('DHCP：' + da.get('persist.net.dhcp'))
         to_log('IP：' + da.get('sys.net.ip'))
@@ -45,5 +50,5 @@ if nowTimestamp[:-3] == da.get('time', 'failed')[:-3]:
     else:
         to_log('\n请检查断言参数\n')
 else:
-    to_log('\nLAN+静态IP+USB网络配置失败！\n')
+    to_log('\nLAN+静态IP+USB网络配置测试Failed\n')
 

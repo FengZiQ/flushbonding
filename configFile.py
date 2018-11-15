@@ -30,6 +30,8 @@ data_for_cases = {
     'mask': '255.255.255.0',
     'gw': '192.168.233.1',
     'dns': '10.10.2.6',
+    'mobileWifiName': 'fzq',
+    'mobileWifiPwd': '123456789',
 
 }
 

@@ -47,6 +47,10 @@ def send_upgrade_cmd(upgrade_id):
 
 
 if __name__ == "__main__":
-    print(get_device_attribute(configuration['upgradeDeviceNo']).get('time', '获取时间失败'))
-    print(get_device_attribute(configuration['upgradeDeviceNo']).get('time', '获取时间失败'))
+    nowTimestamp = time.strftime('%Y-%m-%d %H-%M-%S', time.localtime(time.time()))
+    correction_time = nowTimestamp[:-4] + str(int(nowTimestamp[-4]) + 1)
+    print(nowTimestamp)
+    print(correction_time)
+    print(get_device_attribute('4113180400130999').get('time', '获取时间失败'))
+
 
