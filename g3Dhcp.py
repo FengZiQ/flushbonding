@@ -1,7 +1,7 @@
 # coding=utf-8
 import time
 from to_log import to_log
-from networkConfig import g3
+from QRCodeOfNetworkConfig import g3
 from dmSupport import get_device_attribute
 from configFile import data_for_cases
 
