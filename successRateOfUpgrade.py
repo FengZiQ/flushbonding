@@ -14,18 +14,18 @@ for i in range(20):
 
     # 下发升级（f[4.1.0.5]/839[4.1.0.8]）
     if a0.get('sys.software.version', '') == '4.1.0.5':
-        send_upgrade_cmd('839')
+        send_upgrade_cmd(configuration['upgradeDeviceNo'], '839')
     elif a0.get('sys.software.version', '') == '':
         to_log('获取设备属性失败！')
     else:
-        send_upgrade_cmd('838')
+        send_upgrade_cmd(configuration['upgradeDeviceNo'], '838')
     time.sleep(15)
 
     # 升级过程等待20min，期间每个5秒获取一次设备属性
     # 如果最后一次属性上传时间与上次上传时间相等，则升级过程结束
     for ii in range(240):
         a1 = get_device_attribute(configuration['upgradeDeviceNo'])
-        if a1.get('time', '1') != a0.get('time', ''):
+        if a1.get('time', '') != a0.get('time', ''):
             break
 
     # 升级完成后获取设备属性

@@ -15,23 +15,25 @@ configuration = {
     # sp server
     'spServer': 'http://spadmin.preo.2dupay.com/',
     # cas server
-    'casServer': 'http://cas.preo.2dupay.com/',
-    # 参数配置名称
-    'paramConfiguration': '',
-    # 自定义配置名称
-    'selfConfiguration': '',
-    # 升级包名称及版本
-    'upgradeTest': ['', '']
+    'casServer': 'http://cas.preo.2dupay.com/'
 }
 
-data_for_cases = {
+# 固件配网cases的测试数据
+data_for_networkTest = {
     'deviceNo': '4113180400130999',
     'ip': '192.168.233.5',
     'mask': '255.255.255.0',
     'gw': '192.168.233.1',
     'dns': '10.10.2.6',
     'mobileWifiName': 'fzq',
-    'mobileWifiPwd': '123456789',
-
+    'mobileWifiPwd': '123456789'
 }
 
+# 固件升级cases的测试数据
+data_for_upgradeTest = {
+    'deviceNo': '4113180400130999',
+    'fwPBeforeName': 'A5公版4.1.0.5',
+    'fwPBeforeVersion': '4.1.0.5',
+    'fwPCurrentName': 'A5公版4.1.0.8',
+    'fwPCurrentVersion': '4.1.0.8',
+}

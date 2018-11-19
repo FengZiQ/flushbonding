@@ -3,12 +3,12 @@ import time
 from to_log import to_log
 from QRCodeOfNetworkConfig import wifi_mode
 from dmSupport import get_device_attribute
-from configFile import data_for_cases
+from configFile import data_for_networkTest
 
 # 生成手机热点网络配置二维码
 wifi_mode(
-    name=data_for_cases.get('mobileWifiName'),
-    pwd=data_for_cases.get('mobileWifiPwd'),
+    name=data_for_networkTest.get('mobileWifiName'),
+    pwd=data_for_networkTest.get('mobileWifiPwd'),
     dh='dhcp'
 )
 
@@ -18,7 +18,7 @@ time.sleep(10)
 # 获取系统当前时间
 nowTimestamp = time.strftime('%Y-%m-%d %H-%M-%S', time.localtime(time.time()))
 # 获取设备属性
-da = get_device_attribute(data_for_cases.get('deviceNo'))
+da = get_device_attribute(data_for_networkTest.get('deviceNo'))
 # 修正时间
 correction_time = nowTimestamp[:-4] + str(int(nowTimestamp[-4]) + 1)
 

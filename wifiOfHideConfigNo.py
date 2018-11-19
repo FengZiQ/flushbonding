@@ -3,7 +3,7 @@ import time
 from to_log import to_log
 from QRCodeOfNetworkConfig import wifi_mode
 from dmSupport import get_device_attribute
-from configFile import data_for_cases
+from configFile import data_for_networkTest
 from honorRouter import rc
 
 if rc.wc(name='QA', pwd='12345678', secure=2, ssid=True):
@@ -18,7 +18,7 @@ if rc.wc(name='QA', pwd='12345678', secure=2, ssid=True):
     # 获取系统当前时间
     nowTimestamp = time.strftime('%Y-%m-%d %H-%M-%S', time.localtime(time.time()))
     # 获取设备属性
-    da = get_device_attribute(data_for_cases.get('deviceNo'))
+    da = get_device_attribute(data_for_networkTest.get('deviceNo'))
 
     if nowTimestamp[:-3] != da.get('time', 'failed')[:-3]:
         to_log('WIFI设成隐藏，配置界面选择否网络配置测试Pass\n')

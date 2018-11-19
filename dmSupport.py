@@ -33,13 +33,26 @@ def get_device_attribute(device_no):
         return {}
 
 
+# 获取升级包信息
+def get_upgrade_package_info(name, version):
+    try:
+        res = dm_session.get(
+            configuration['dmServer']+'upgradePackage/pageList?softName='+name+'&version='+version
+        )
+        temp = json.loads(res.text)['data']['list'][0]
+        return temp
+    except:
+        to_log('获取升级包信息失败')
+        return None
+
+
 # 设备升级
-def send_upgrade_cmd(upgrade_id):
+def send_upgrade_cmd(device_no,upgrade_id):
     dm_session.post(
         configuration['dmServer'] + 'device/upgradeEx/edit',
         json={
             "code": "firmware",
-            "deviceNoList": [configuration['upgradeDeviceNo']],
+            "deviceNoList": [str(device_no)],
             "upgradeInfoList": [{"upgradeId": str(upgrade_id)}]
         }
     )

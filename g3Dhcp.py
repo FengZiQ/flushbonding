@@ -3,7 +3,7 @@ import time
 from to_log import to_log
 from QRCodeOfNetworkConfig import g3
 from dmSupport import get_device_attribute
-from configFile import data_for_cases
+from configFile import data_for_networkTest
 
 # 生成3G无打印机网络配置二维码
 g3()
@@ -14,7 +14,7 @@ time.sleep(10)
 # 获取系统当前时间
 nowTimestamp = time.strftime('%Y-%m-%d %H-%M-%S', time.localtime(time.time()))
 # 获取设备属性
-da = get_device_attribute(data_for_cases.get('deviceNo'))
+da = get_device_attribute(data_for_networkTest.get('deviceNo'))
 # 修正时间
 correction_time = nowTimestamp[:-4] + str(int(nowTimestamp[-4]) + 1)
 
