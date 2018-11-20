@@ -3,7 +3,7 @@ import time
 from to_log import to_log
 from QRCodeOfNetworkConfig import wifi_mode
 from dmSupport import get_device_attribute
-from configFile import data_for_networkTest
+from configFile import data_for_networkTest, open_picture
 from honorRouter import rc
 
 if rc.wc(name='QA', pwd='12345678', secure=2):
@@ -54,6 +54,9 @@ if rc.wc(name='QA', pwd='12345678', secure=2):
                 to_log('实际DNS为：' + da.get('persist.net.dns1'))
         else:
             to_log('请检查断言参数\n')
+
+        # 打开设备信息码
+        open_picture('deviceInfoCode.png')
     else:
         to_log('WIFI+StaticIP+USB网络配置测试Failed\n')
 else:

@@ -3,7 +3,7 @@ import time
 from to_log import to_log
 from QRCodeOfNetworkConfig import lan_mode
 from dmSupport import get_device_attribute
-from configFile import data_for_networkTest
+from configFile import data_for_networkTest, open_picture
 
 # 生成LAN+静态IP+USB网络配置二维码
 lan_mode(
@@ -49,6 +49,9 @@ if da.get('time', 'failed')[:-3] == nowTimestamp[:-3] or da.get('time', 'failed'
             to_log('实际DNS为：' + da.get('persist.net.dns1'))
     else:
         to_log('\n请检查断言参数\n')
+
+    # 打开设备信息码
+    open_picture('deviceInfoCode.png')
 else:
     to_log('\nLAN+静态IP+USB网络配置测试Failed\n')
 

@@ -59,11 +59,130 @@ def send_upgrade_cmd(device_no,upgrade_id):
     return None
 
 
-if __name__ == "__main__":
-    nowTimestamp = time.strftime('%Y-%m-%d %H-%M-%S', time.localtime(time.time()))
-    correction_time = nowTimestamp[:-4] + str(int(nowTimestamp[-4]) + 1)
-    print(nowTimestamp)
-    print(correction_time)
-    print(get_device_attribute('4113180400130999').get('time', '获取时间失败'))
+# 获取设备信息
+def get_device_info(device_no):
+    try:
+        res = dm_session.get(
+            configuration['dmServer'] + 'deviceSale/pageList?connectState=0&operateType=customer&serialNum=' + device_no
+        )
+        temp = json.loads(res.text)
+        device_info = temp['data']['list'][0]
+        return device_info
+    except:
+        to_log('获取设备信息失败')
+        return {}
 
+
+# 获取服务商信息
+def customer_info(customer_name):
+    cus_info = {}
+    try:
+        res = dm_session.get(
+            configuration['dmServer'] + 'customer/pageList?salesName=sadmin&name=' + customer_name
+        )
+        temp0 = json.loads(res.text)
+        temp1 = temp0['data']['list']
+        for c in temp1:
+            if c.get('name', '') == customer_name:
+                cus_info = c
+    except:
+        to_log('获取服务商信息失败')
+
+    return cus_info
+
+
+# 获取参数配置信息
+def get_para_config(config_name):
+    try:
+        res = dm_session.get(
+            configuration['dmServer']+'payChannelConfig/pageList?description='+config_name
+        )
+        temp = json.loads(res.text)
+        config_info = temp['data']['list'][0]
+        return config_info
+    except:
+        return {}
+
+
+# 给非默认参数配置绑定设备
+def bind_device_for_para_config(pay_channel_id, device_id, device_no):
+    try:
+        dm_session.post(
+            configuration['dmServer'] + 'editDeviceBindChannel/modify',
+            json={
+                "payChannelId": pay_channel_id,
+                "deviceIds": [device_id],
+                "deviceNos": [device_no]
+            }
+        )
+    except:
+        to_log('给非默认参数配置绑定设备失败')
+
+
+# 参数配置下发
+def issue_para_config(pay_channel_id, device_id, device_no, cus_id):
+    try:
+        dm_session.post(
+            configuration['dmServer'] + 'editDeviceUnBindChannel/modify',
+            json={
+                "payChannelId": str(pay_channel_id),
+                "deviceIds": [str(device_id)],
+                "deviceNos": [device_no],
+                "operateType": "singleEdit",
+                "customerId": str(cus_id)
+            }
+        )
+    except:
+        to_log('参数配置下发失败')
+
+
+# 获取自定义通用配置信息
+def get_self_common_config_id(config_name):
+    try:
+        res = dm_session.get(
+            configuration['dmServer'] + 'paramListConfig/pageList?name=' + config_name
+        )
+        temp = json.loads(res.text)
+        config_id = temp['data']['list'][0]['id']
+        return config_id
+    except:
+        to_log('获取自定义通用配置信息失败')
+        return {}
+
+
+# 自定义通用配置绑定解绑设备: action_type=1为绑定，=0为解绑
+def device_and_self_common_config(self_cc_id, action_type, device_id=list(), device_no=list()):
+    try:
+        dm_session.post(
+            configuration['dmServer'] + 'deviceIsBindParamList/modify',
+            json={
+                "paramListId": self_cc_id,
+                "deviceIds": device_id,
+                "serialNums": device_no,
+                "type": action_type
+            }
+        )
+    except:
+        to_log('自定义通用配置绑定(解绑)设备失败')
+        return {}
+
+
+# 自定义通用配置下发
+def user_defined_config(config_id, device_id, device_no):
+    try:
+        dm_session.post(
+            configuration['dmServer'] + 'deviceIsBindParamList/modify',
+            json={
+                "paramListId": str(config_id),
+                "deviceIds":[str(device_id)],
+                "serialNums":[device_no],
+                "type": "2"
+            }
+        )
+    except:
+        to_log('自定义通用配置下发失败')
+
+
+if __name__ == "__main__":
+    pass
 

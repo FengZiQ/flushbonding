@@ -3,7 +3,7 @@ import time
 from to_log import to_log
 from QRCodeOfNetworkConfig import g3
 from dmSupport import get_device_attribute
-from configFile import data_for_networkTest
+from configFile import data_for_networkTest, open_picture
 
 # 生成3G有打印机网络配置二维码
 g3(pr='usb')
@@ -27,6 +27,9 @@ if da.get('time', 'failed')[:-3] == nowTimestamp[:-3] or da.get('time', 'failed'
         to_log('MAC：' + da.get('system.net.wifi.mac'))
     else:
         to_log('\n请检查断言参数\n')
+
+    # 打开设备信息码
+    open_picture('deviceInfoCode.png')
 else:
     to_log('\n3G有打印机网络配置测试Failed\n')
 

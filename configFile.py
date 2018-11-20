@@ -1,4 +1,5 @@
 # coding=utf-8
+
 configuration = {
     # 升级设备
     'upgradeDeviceNo': '4113180400129053',
@@ -15,7 +16,7 @@ configuration = {
     # sp server
     'spServer': 'http://spadmin.preo.2dupay.com/',
     # cas server
-    'casServer': 'http://cas.preo.2dupay.com/'
+    'casServer': 'http://cas.preo.2dupay.com/',
 }
 
 # 固件配网cases的测试数据
@@ -26,7 +27,7 @@ data_for_networkTest = {
     'gw': '192.168.233.1',
     'dns': '10.10.2.6',
     'mobileWifiName': 'fzq',
-    'mobileWifiPwd': '123456789'
+    'mobileWifiPwd': '123456789',
 }
 
 # 固件升级cases的测试数据
@@ -37,3 +38,32 @@ data_for_upgradeTest = {
     'fwPCurrentName': 'A5公版4.1.0.8',
     'fwPCurrentVersion': '4.1.0.8',
 }
+
+# 支付相关cases测试数据
+data_for_paymentTest = {
+    'deviceNo': '4113180400130999',
+    'merchantName': 'sh1m1子',
+    'merchantType': '门店',
+    'payServer': 'https://sp.preo.2dupay.com/',
+}
+
+# 下发相关cases测试数据
+data_for_issueTest = {
+    'deviceNo': '4113180400130999',
+    'customerName': '测试账户',
+    'parameterConfig': '测试_fengziqi',
+    'userDefinedCommonConfig': '测试_fengziqi',
+}
+
+
+# 用浏览器打开图片
+def open_picture(picture_name):
+    from selenium import webdriver
+    from time import sleep
+
+    driver = webdriver.Firefox()
+    driver.maximize_window()
+    driver.get('file:///' + configuration['filePath'] + picture_name)
+    sleep(2)
+    driver.close()
+    return None

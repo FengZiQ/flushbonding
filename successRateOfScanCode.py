@@ -1,7 +1,7 @@
 # coding=utf-8
 from selenium import webdriver
 from spSupport import verbose_payment
-from configFile import configuration
+from configFile import configuration, data_for_paymentTest
 from to_log import to_log
 import time
 
@@ -17,12 +17,20 @@ failCount = 0
 if start:
     to_log('***扫码后成功发起支付请求率测试***')
     for i in range(50):
-        bill1 = verbose_payment('4113180400130999')
+        bill1 = verbose_payment(
+            data_for_paymentTest['merchantName'],
+            data_for_paymentTest['merchantType'],
+            data_for_paymentTest['deviceNo'],
+        )
         driver.get('file:///' + configuration['filePath'] + 'wxCode.png')
         time.sleep(1)
         driver.get('file:///' + configuration['filePath'] + 'blank.png')
         time.sleep(30)
-        bill2 = verbose_payment('4113180400130999')
+        bill2 = verbose_payment(
+            data_for_paymentTest['merchantName'],
+            data_for_paymentTest['merchantType'],
+            data_for_paymentTest['deviceNo'],
+        )
         # print(len(bill1), len(bill2))
         if len(bill1) + 1 == len(bill2):
             to_log('第' + str(i+1) + '次扫码后发起支付请求成功 ^_^')
