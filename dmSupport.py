@@ -27,6 +27,7 @@ def get_device_attribute(device_no):
         )
         temp = json.loads(res.text)['data']['data']
         result = json.loads(temp)
+        dm_session.close()
         return result
     except:
         to_log('\n获取设备属性失败\n')
@@ -40,6 +41,7 @@ def get_upgrade_package_info(name, version):
             configuration['dmServer']+'upgradePackage/pageList?softName='+name+'&version='+version
         )
         temp = json.loads(res.text)['data']['list'][0]
+        dm_session.close()
         return temp
     except:
         to_log('获取升级包信息失败')
@@ -56,6 +58,7 @@ def send_upgrade_cmd(device_no,upgrade_id):
             "upgradeInfoList": [{"upgradeId": str(upgrade_id)}]
         }
     )
+    dm_session.close()
     return None
 
 
@@ -67,6 +70,7 @@ def get_device_info(device_no):
         )
         temp = json.loads(res.text)
         device_info = temp['data']['list'][0]
+        dm_session.close()
         return device_info
     except:
         to_log('获取设备信息失败')
@@ -85,6 +89,8 @@ def customer_info(customer_name):
         for c in temp1:
             if c.get('name', '') == customer_name:
                 cus_info = c
+
+        dm_session.close()
     except:
         to_log('获取服务商信息失败')
 
@@ -99,6 +105,7 @@ def get_para_config(config_name):
         )
         temp = json.loads(res.text)
         config_info = temp['data']['list'][0]
+        dm_session.close()
         return config_info
     except:
         return {}
@@ -115,6 +122,7 @@ def bind_device_for_para_config(pay_channel_id, device_id, device_no):
                 "deviceNos": [device_no]
             }
         )
+        dm_session.close()
     except:
         to_log('给非默认参数配置绑定设备失败')
 
@@ -132,6 +140,7 @@ def issue_para_config(pay_channel_id, device_id, device_no, cus_id):
                 "customerId": str(cus_id)
             }
         )
+        dm_session.close()
     except:
         to_log('参数配置下发失败')
 
@@ -144,6 +153,7 @@ def get_self_common_config_id(config_name):
         )
         temp = json.loads(res.text)
         config_id = temp['data']['list'][0]['id']
+        dm_session.close()
         return config_id
     except:
         to_log('获取自定义通用配置信息失败')
@@ -162,6 +172,7 @@ def device_and_self_common_config(self_cc_id, action_type, device_id=list(), dev
                 "type": action_type
             }
         )
+        dm_session.close()
     except:
         to_log('自定义通用配置绑定(解绑)设备失败')
         return {}
@@ -179,6 +190,7 @@ def user_defined_config(config_id, device_id, device_no):
                 "type": "2"
             }
         )
+        dm_session.close()
     except:
         to_log('自定义通用配置下发失败')
 

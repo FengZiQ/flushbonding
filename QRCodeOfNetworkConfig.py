@@ -36,7 +36,7 @@ def wifi_mode(name, pwd, ss_id=False, pr='', **dh: 'key: dh,ip,mask,gw,dns'):
             driver.find_element_by_id('gw').send_keys(dh.get('gw', ''))
             driver.find_element_by_id('dns').send_keys(dh.get('dns', ''))
         driver.find_element_by_id('btn').click()
-        sleep(5)
+        sleep(1)
         driver.close()
     except:
         to_log('网络配置码生成失败！')
@@ -73,7 +73,7 @@ def lan_mode(pr='', **dh: 'key: dh(DHCP),ip,mask,gw,dns'):
             driver.find_element_by_id('dns').send_keys(dh.get('dns', ''))
             sleep(1)
         driver.find_element_by_id('btn').click()
-        sleep(5)
+        sleep(1)
         driver.close()
     except:
         to_log('网络配置码生成失败！')
@@ -97,7 +97,7 @@ def g3(pr=''):
         else:
             driver.find_element_by_xpath('//option[@value="无"]').click()
         driver.find_element_by_id('btn').click()
-        sleep(5)
+        sleep(1)
         driver.close()
     except:
         to_log('网络配置码生成失败！')

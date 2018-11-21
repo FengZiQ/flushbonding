@@ -4,11 +4,13 @@ from to_log import to_log
 from QRCodeOfNetworkConfig import wifi_mode
 from dmSupport import get_device_attribute
 from configFile import data_for_networkTest
-from honorRouter import rc
+from honorRouter import Configuration
+
+rc = Configuration()
+
+to_log('WIFI设成隐藏，配置界面选择否网络配置测试\n')
 
 if rc.wc(name='QA', pwd='12345678', secure=2, ssid=True):
-    rc.finished()
-
     # 生成WIFI设成隐藏，配置界面选择否网络配置二维码
     wifi_mode(name='QA', pwd='12345678', ss_id=False, dh='dhcp')
 
@@ -24,7 +26,7 @@ if rc.wc(name='QA', pwd='12345678', secure=2, ssid=True):
         to_log('WIFI设成隐藏，配置界面选择否网络配置测试Pass\n')
     else:
         to_log('WIFI设成隐藏，配置界面选择否网络配置测试Failed\n')
-else:
-    rc.finished()
+
+rc.finished()
 
 

@@ -4,11 +4,13 @@ from to_log import to_log
 from QRCodeOfNetworkConfig import wifi_mode
 from dmSupport import get_device_attribute
 from configFile import data_for_networkTest
-from honorRouter import rc
+from honorRouter import Configuration
+
+rc = Configuration()
+
+to_log('WiFi密码为空网络配置测试\n')
 
 if rc.wc(name='QA', pwd='', ssid=True, secure=1):
-    rc.finished()
-
     # 生成WiFi密码为空网络配置二维码
     wifi_mode(name='QA', pwd='', ss_id=True, dh='dhcp')
 
@@ -25,16 +27,16 @@ if rc.wc(name='QA', pwd='', ssid=True, secure=1):
     if da.get('time', 'failed')[:-3] == nowTimestamp[:-3] or da.get('time', 'failed')[:-3] == correction_time:
         if da.get('persist.net.type') == 'wifi' and da.get('persist.net.wifihide') == '1':
             to_log('WiFi密码为空网络配置测试Pass\n')
-            to_log('配网方式：'+da.get('persist.net.type'))
-            to_log('WiFi是否隐藏：' + da.get('persist.net.wifihide'))
-            to_log('DHCP：' + da.get('persist.net.dhcp'))
-            to_log('IP：' + da.get('sys.net.ip'))
-            to_log('MAC：' + da.get('system.net.wifi.mac'))
+            to_log('配网方式：'+da.get('persist.net.type', ''))
+            to_log('WiFi是否隐藏：' + da.get('persist.net.wifihide', ''))
+            to_log('DHCP：' + da.get('persist.net.dhcp', ''))
+            to_log('IP：' + da.get('sys.net.ip', ''))
+            to_log('MAC：' + da.get('system.net.wifi.mac', '') + '\n')
         else:
             to_log('请检查断言参数\n')
     else:
         to_log('WiFi密码为空网络配置测试Failed\n')
-else:
-    rc.finished()
+
+rc.finished()
 
 

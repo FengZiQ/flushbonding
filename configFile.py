@@ -64,6 +64,30 @@ def open_picture(picture_name):
     driver = webdriver.Firefox()
     driver.maximize_window()
     driver.get('file:///' + configuration['filePath'] + picture_name)
-    sleep(2)
+    sleep(1)
     driver.close()
     return None
+
+
+# 一定时间内检查网络配置是否成功
+def check_network_config_if_success(want_time):
+    import time
+    from dmSupport import get_device_attribute
+    from to_log import to_log
+
+    flag = False
+    try:
+        for i in range(int(want_time/5)):
+            # 获取系统当前时间
+            ts = time.strftime('%Y-%m-%d %H-%M-%S', time.localtime(time.time()))
+            # 获取设备属性
+            da = get_device_attribute(data_for_networkTest.get('deviceNo'))
+            # 修正时间
+            ct = ts[:-4] + str(int(ts[-4]) + 1)
+            if da.get('time', 'failed')[:-3] == ts[:-3] or da.get('time', 'failed')[:-3] == ct:
+                flag = True
+                break
+    except:
+        to_log('检查网络配置模块异常, 请确认输入的时间是否为5的整数倍')
+
+    return flag

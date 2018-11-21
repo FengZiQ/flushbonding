@@ -4,11 +4,13 @@ from to_log import to_log
 from QRCodeOfNetworkConfig import wifi_mode
 from dmSupport import get_device_attribute
 from configFile import data_for_networkTest
-from honorRouter import rc
+from honorRouter import Configuration
+
+rc = Configuration()
+
+to_log('WiFi密码错误网络配置测试\n')
 
 if rc.wc(name='QA', pwd='12345678', secure=2):
-    rc.finished()
-
     # 生成WiFi密码错误网络配置二维码
     wifi_mode(name='QA', pwd='waHaHa', dh='dhcp')
 
@@ -24,7 +26,7 @@ if rc.wc(name='QA', pwd='12345678', secure=2):
         to_log('WiFi密码错误网络配置测试Pass\n')
     else:
         to_log('WiFi密码错误网络配置测试Failed\n')
-else:
-    rc.finished()
+
+rc.finished()
 
 

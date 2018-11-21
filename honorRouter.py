@@ -220,6 +220,3 @@ class Configuration(object):
     def finished(self):
         self.driver.close()
 
-
-rc = Configuration()
-
