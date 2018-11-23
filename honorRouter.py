@@ -45,21 +45,18 @@ class Configuration(object):
             sleep(5)
             if ssid:
                 self.ssid_set()
+            else:
+                self.ssid_set_false()
             return True
-        except:
+        except Exception as e:
             to_log('WiFi设置Failed')
+            print(e)
             return False
 
     # WiFi信道设置
     def channel_set(self, channel=0):
         try:
             if channel == 1:
-                self.driver.find_element_by_class_name('want_more').click()
-                sleep(3)
-                self.driver.find_element_by_id('wifiadvancesetparent_menuId').click()
-                sleep(2)
-                self.driver.find_element_by_id('wlanadvance_menuId').click()
-                sleep(1)
                 self.driver.find_element_by_id('wifi_channel24g_ctrl_selectlist_childselect').click()
                 sleep(1)
                 self.driver.find_element_by_id('1_BigSelectBoxScrollItemID').click()
@@ -128,8 +125,9 @@ class Configuration(object):
             self.driver.find_element_by_id('SendSettings_submitbutton').click()
             sleep(5)
             return True
-        except:
+        except Exception as e:
             to_log('WiFi信道设置Failed')
+            to_log(e)
             return False
 
     # Wifi模式设置
@@ -160,8 +158,9 @@ class Configuration(object):
             self.driver.find_element_by_id('SendSettings_submitbutton').click()
             sleep(5)
             return True
-        except:
+        except Exception as e:
             to_log('WiFi模式设置Failed')
+            print(e)
             return False
 
     # WiFi频宽设置
@@ -191,11 +190,12 @@ class Configuration(object):
             self.driver.find_element_by_id('SendSettings_submitbutton').click()
             sleep(5)
             return True
-        except:
+        except Exception as e:
             to_log('WiFi频宽设置Failed')
+            print(e)
             return False
 
-    # WiFi是否隐藏
+    # WiFi隐藏设置
     def ssid_set(self):
         try:
             self.driver.find_element_by_class_name('want_more').click()
@@ -213,8 +213,31 @@ class Configuration(object):
             self.driver.find_element_by_id('SendSettings_submitbutton').click()
             sleep(5)
             return True
-        except:
-            to_log('WiFi是否隐藏设置Failed')
+        except Exception as e:
+            to_log('WiFi隐藏设置Failed')
+            print(e)
+            return False
+
+    # WiFi不隐藏设置
+    def ssid_set_false(self):
+        try:
+            self.driver.find_element_by_class_name('want_more').click()
+            sleep(3)
+            self.driver.find_element_by_id('wifiadvancesetparent_menuId').click()
+            sleep(2)
+            self.driver.find_element_by_id('wlanadvance_menuId').click()
+            sleep(1)
+
+            self.driver.find_element_by_id('wifi_display_ssid_ctrl_selectlist_childselect').click()
+            sleep(1)
+            self.driver.find_element_by_id('false_BigSelectBoxItemID').click()
+            sleep(1)
+            self.driver.find_element_by_id('SendSettings_submitbutton').click()
+            sleep(5)
+            return True
+        except Exception as e:
+            to_log('WiFi不隐藏设置Failed')
+            print(e)
             return False
 
     def finished(self):

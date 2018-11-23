@@ -15,13 +15,13 @@ if rc.wc(name='QA', pwd='12345678', secure=2):
     wifi_mode(name='QA', pwd='12345678', dh='dhcp')
 
     # 配网时间
-    time.sleep(10)
+    time.sleep(20)
 
     for i in range(1, 14):
         # 改变信道
         if rc.channel_set(i):
             # 10s后若设备属性可以上传，则说明盒子支持该信道
-            time.sleep(10)
+            time.sleep(30)
             # 获取系统当前时间
             nowTimestamp = time.strftime('%Y-%m-%d %H-%M-%S', time.localtime(time.time()))
             # 获取设备属性

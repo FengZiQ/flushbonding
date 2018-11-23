@@ -17,6 +17,8 @@ configuration = {
     'spServer': 'http://spadmin.preo.2dupay.com/',
     # cas server
     'casServer': 'http://cas.preo.2dupay.com/',
+    # mock数据路径
+    'mockDataPath': r'D:/script/flushbonding/apiResponse/',
 }
 
 # 固件配网cases的测试数据

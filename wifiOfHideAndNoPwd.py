@@ -36,7 +36,7 @@ if rc.wc(name='QA', pwd='', ssid=True, secure=1):
             to_log('请检查断言参数\n')
     else:
         to_log('WiFi密码为空网络配置测试Failed\n')
-
+    rc.wc(name='QA', pwd='12345678', ssid=True, secure=1)
 rc.finished()
 
 
