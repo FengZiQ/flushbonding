@@ -161,14 +161,14 @@ def get_self_common_config_id(config_name):
 
 
 # 自定义通用配置绑定解绑设备: action_type=1为绑定，=0为解绑
-def device_and_self_common_config(self_cc_id, action_type, device_id=list(), device_no=list()):
+def device_and_self_common_config(self_cc_id, action_type, device_id, device_no):
     try:
         dm_session.post(
             configuration['dmServer'] + 'deviceIsBindParamList/modify',
             json={
-                "paramListId": self_cc_id,
-                "deviceIds": device_id,
-                "serialNums": device_no,
+                "paramListId": str(self_cc_id),
+                "deviceIds": [str(device_id)],
+                "serialNums": [str(device_no)],
                 "type": action_type
             }
         )

@@ -3,7 +3,7 @@ import time
 from to_log import to_log
 from QRCodeOfNetworkConfig import wifi_mode
 from dmSupport import get_device_attribute
-from configFile import data_for_networkTest
+from configFile import data_for_networkTest, open_picture
 
 to_log('手机热点网络配置测试\n')
 
@@ -11,11 +11,12 @@ to_log('手机热点网络配置测试\n')
 wifi_mode(
     name=data_for_networkTest.get('mobileWifiName'),
     pwd=data_for_networkTest.get('mobileWifiPwd'),
+    pr='usb',
     dh='dhcp'
 )
 
 # 配网时间
-time.sleep(10)
+time.sleep(15)
 
 # 获取系统当前时间
 nowTimestamp = time.strftime('%Y-%m-%d %H-%M-%S', time.localtime(time.time()))
@@ -33,6 +34,8 @@ if da.get('time', 'failed')[:-3] == nowTimestamp[:-3] or da.get('time', 'failed'
         to_log('MAC：' + da.get('system.net.wifi.mac', '') + '\n')
     else:
         to_log('请检查断言参数\n')
+    # 打开设备信息码
+    open_picture('deviceInfoCode.png')
 else:
     to_log('手机热点网络配置测试Failed\n')
 

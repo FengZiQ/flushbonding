@@ -15,7 +15,7 @@ if rc.wc(name='QA', pwd='', secure=1):
     wifi_mode(name='QA', pwd='', dh='dhcp')
 
     # 配网时间
-    time.sleep(10)
+    time.sleep(15)
 
     # 获取系统当前时间
     nowTimestamp = time.strftime('%Y-%m-%d %H-%M-%S', time.localtime(time.time()))

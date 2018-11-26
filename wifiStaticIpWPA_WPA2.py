@@ -8,7 +8,7 @@ from honorRouter import Configuration
 
 rc = Configuration()
 
-to_log('WIFI+StaticIP网络配置测试\n')
+to_log('WIFI+静态IP+无打印机 WPA/WPA2 网络配置测试\n')
 
 if rc.wc(name='QA', pwd='12345678', secure=3):
     # 生成WIFI+StaticIP网络配置二维码
@@ -33,7 +33,7 @@ if rc.wc(name='QA', pwd='12345678', secure=3):
 
     if da.get('time', 'failed')[:-3] == nowTimestamp[:-3] or da.get('time', 'failed')[:-3] == correction_time:
         if da.get('persist.net.type') == 'wifi' and da.get('persist.net.dhcp') == 'false':
-            to_log('WIFI+StaticIP网络配置测试Pass\n')
+            to_log('WIFI+静态IP+无打印机 WPA/WPA2 网络配置测试Pass\n')
             to_log('配网方式：'+da.get('persist.net.type', ''))
             to_log('DHCP：' + da.get('persist.net.dhcp', ''))
             to_log('IP：' + da.get('sys.net.ip', ''))
@@ -56,5 +56,5 @@ if rc.wc(name='QA', pwd='12345678', secure=3):
         else:
             to_log('请检查断言参数\n')
     else:
-        to_log('WIFI+StaticIP网络配置测试Failed\n')
+        to_log('WIFI+静态IP+无打印机 WPA/WPA2 网络配置测试Failed\n')
 rc.finished()

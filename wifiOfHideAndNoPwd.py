@@ -8,14 +8,14 @@ from honorRouter import Configuration
 
 rc = Configuration()
 
-to_log('WiFi密码为空网络配置测试\n')
+to_log('隐藏WIFI密码为空网络配置测试\n')
 
 if rc.wc(name='QA', pwd='', ssid=True, secure=1):
     # 生成WiFi密码为空网络配置二维码
     wifi_mode(name='QA', pwd='', ss_id=True, dh='dhcp')
 
     # 配网时间
-    time.sleep(10)
+    time.sleep(15)
 
     # 获取系统当前时间
     nowTimestamp = time.strftime('%Y-%m-%d %H-%M-%S', time.localtime(time.time()))
@@ -26,7 +26,7 @@ if rc.wc(name='QA', pwd='', ssid=True, secure=1):
 
     if da.get('time', 'failed')[:-3] == nowTimestamp[:-3] or da.get('time', 'failed')[:-3] == correction_time:
         if da.get('persist.net.type') == 'wifi' and da.get('persist.net.wifihide') == '1':
-            to_log('WiFi密码为空网络配置测试Pass\n')
+            to_log('隐藏WIFI密码为空网络配置测试Pass\n')
             to_log('配网方式：'+da.get('persist.net.type', ''))
             to_log('WiFi是否隐藏：' + da.get('persist.net.wifihide', ''))
             to_log('DHCP：' + da.get('persist.net.dhcp', ''))
@@ -35,8 +35,8 @@ if rc.wc(name='QA', pwd='', ssid=True, secure=1):
         else:
             to_log('请检查断言参数\n')
     else:
-        to_log('WiFi密码为空网络配置测试Failed\n')
-    rc.wc(name='QA', pwd='12345678', ssid=True, secure=1)
+        to_log('隐藏WIFI密码为空网络配置测试Failed\n')
+
 rc.finished()
 
 

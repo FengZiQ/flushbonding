@@ -3,7 +3,7 @@ import time
 from to_log import to_log
 from QRCodeOfNetworkConfig import wifi_mode
 from dmSupport import get_device_attribute
-from configFile import data_for_networkTest
+from configFile import data_for_networkTest, open_picture
 from honorRouter import Configuration
 
 rc = Configuration()
@@ -12,10 +12,10 @@ to_log('SSID长度32/密码长度63网络配置测试\n')
 
 if rc.wc(name='123a'*8, pwd='12'*30 + 'abc', secure=2):
     # 生成SSID长度32/密码长度63网络配置二维码
-    wifi_mode(name='123a'*8, pwd='12'*30 + 'abc', dh='dhcp')
+    wifi_mode(name='123a'*8, pwd='12'*30 + 'abc', pr='usb', dh='dhcp')
 
     # 配网时间
-    time.sleep(10)
+    time.sleep(15)
 
     # 获取系统当前时间
     nowTimestamp = time.strftime('%Y-%m-%d %H-%M-%S', time.localtime(time.time()))
@@ -33,6 +33,8 @@ if rc.wc(name='123a'*8, pwd='12'*30 + 'abc', secure=2):
             to_log('MAC：' + da.get('system.net.wifi.mac', '') + '\n')
         else:
             to_log('请检查断言参数\n')
+        # 打开设备信息码
+        open_picture('deviceInfoCode.png')
     else:
         to_log('SSID长度32/密码长度63网络配置测试Failed\n')
 

@@ -3,7 +3,7 @@ import time
 from to_log import to_log
 from QRCodeOfNetworkConfig import wifi_mode
 from dmSupport import get_device_attribute
-from configFile import data_for_networkTest
+from configFile import data_for_networkTest, open_picture
 from honorRouter import Configuration
 
 rc = Configuration()
@@ -12,10 +12,10 @@ to_log('WIFI设成隐藏，配置界面选择是网络配置测试\n')
 
 if rc.wc(name='QA', pwd='12345678', secure=2, ssid=True):
     # 生成WIFI设成隐藏，配置界面选择是网络配置二维码
-    wifi_mode(name='QA', pwd='12345678', ss_id=True, dh='dhcp')
+    wifi_mode(name='QA', pwd='12345678', ss_id=True, pr='usb', dh='dhcp')
 
     # 配网时间
-    time.sleep(10)
+    time.sleep(15)
 
     # 获取系统当前时间
     nowTimestamp = time.strftime('%Y-%m-%d %H-%M-%S', time.localtime(time.time()))
@@ -34,6 +34,8 @@ if rc.wc(name='QA', pwd='12345678', secure=2, ssid=True):
             to_log('MAC：' + da.get('system.net.wifi.mac', '') + '\n')
         else:
             to_log('请检查断言参数\n')
+        # 打开设备信息码
+        open_picture('deviceInfoCode.png')
     else:
         to_log('WIFI设成隐藏，配置界面选择是网络配置测试Failed\n')
 

@@ -2,39 +2,39 @@
 
 configuration = {
     # 升级设备
-    'upgradeDeviceNo': '4113180400129053',
+    'upgradeDeviceNo': '4126180500100018',
     # 扫码成功率测试设备及测试次数
-    'scanDeviceNo': '4113180400129053',
+    'scanDeviceNo': '4126180500100018',
     'scanTestTime': 3,
     # 配网成功率测试设备及测试次数
-    'networkDeviceNo': '4113180400129053',
+    'networkDeviceNo': '4126180500100018',
     'netConfigTestTime': 2,
     # 图片地址
     'filePath': r'D:/script/flushbonding/',
     # dm server
-    'dmServer': 'http://dm.preo.inspos.cn/',
+    'dmServer': 'http://dm.inspos.cn/',
     # sp server
-    'spServer': 'http://spadmin.preo.2dupay.com/',
+    'spServer': 'http://spadmin.2dupay.com/',
     # cas server
-    'casServer': 'http://cas.preo.2dupay.com/',
-    # mock数据路径
+    'casServer': 'http://cas.2dupay.com/',
+    # mock data path
     'mockDataPath': r'D:/script/flushbonding/apiResponse/',
 }
 
 # 固件配网cases的测试数据
 data_for_networkTest = {
-    'deviceNo': '4113180400130999',
-    'ip': '192.168.233.5',
+    'deviceNo': '4126180500100018',
+    'ip': '192.168.233.215',
     'mask': '255.255.255.0',
     'gw': '192.168.233.1',
-    'dns': '10.10.2.6',
-    'mobileWifiName': 'fzq',
-    'mobileWifiPwd': '123456789',
+    'dns': '192.168.233.1',
+    'mobileWifiName': '张张的 iPhone',
+    'mobileWifiPwd': 'ien1oiws00uzv',
 }
 
 # 固件升级cases的测试数据
 data_for_upgradeTest = {
-    'deviceNo': '4113180400130999',
+    'deviceNo': '4126180500100018',
     'fwPBeforeName': 'A5公版4.1.0.5',
     'fwPBeforeVersion': '4.1.0.5',
     'fwPCurrentName': 'A5公版4.1.0.8',
@@ -43,7 +43,7 @@ data_for_upgradeTest = {
 
 # 支付相关cases测试数据
 data_for_paymentTest = {
-    'deviceNo': '4113180400130999',
+    'deviceNo': '4126180500100018',
     'merchantName': 'sh1m1子',
     'merchantType': '门店',
     'payServer': 'https://sp.preo.2dupay.com/',
@@ -51,10 +51,10 @@ data_for_paymentTest = {
 
 # 下发相关cases测试数据
 data_for_issueTest = {
-    'deviceNo': '4113180400130999',
-    'customerName': '测试账户',
+    'deviceNo': '4126180500100018',
+    'customerName': 'LWY测试',
     'parameterConfig': '测试_fengziqi',
-    'userDefinedCommonConfig': '测试_fengziqi',
+    'userDefinedCommonConfig': 'LWY测试串口键盘、数据上传、音量、inspiry、查账',
 }
 
 

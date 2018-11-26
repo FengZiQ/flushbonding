@@ -48,9 +48,8 @@ class Configuration(object):
             else:
                 self.ssid_set_false()
             return True
-        except Exception as e:
+        except:
             to_log('WiFi设置Failed')
-            print(e)
             return False
 
     # WiFi信道设置
@@ -126,20 +125,14 @@ class Configuration(object):
             sleep(5)
             return True
         except Exception as e:
+            print(e)
             to_log('WiFi信道设置Failed')
-            to_log(e)
             return False
 
     # Wifi模式设置
-    def mode_set(self, mode='bgn'):
+    def mode_set(self, mode):
         try:
             if mode == 'bg':
-                self.driver.find_element_by_class_name('want_more').click()
-                sleep(3)
-                self.driver.find_element_by_id('wifiadvancesetparent_menuId').click()
-                sleep(2)
-                self.driver.find_element_by_id('wlanadvance_menuId').click()
-                sleep(1)
                 self.driver.find_element_by_id('wlan_mode_ctrl_selectlist_childselect').click()
                 sleep(1)
                 self.driver.find_element_by_id('b/g_BigSelectBoxItemID').click()
@@ -154,25 +147,23 @@ class Configuration(object):
                 sleep(1)
                 self.driver.find_element_by_id('g_BigSelectBoxItemID').click()
                 sleep(1)
+            elif mode == 'bgn':
+                self.driver.find_element_by_id('wlan_mode_ctrl_selectlist_childselect').click()
+                sleep(1)
+                self.driver.find_element_by_id('b/g/n_BigSelectBoxItemID').click()
+                sleep(1)
 
             self.driver.find_element_by_id('SendSettings_submitbutton').click()
             sleep(5)
             return True
-        except Exception as e:
+        except:
             to_log('WiFi模式设置Failed')
-            print(e)
             return False
 
     # WiFi频宽设置
-    def hz_set(self, hz='40'):
+    def hz_set(self, hz):
         try:
             if hz == '20':
-                self.driver.find_element_by_class_name('want_more').click()
-                sleep(3)
-                self.driver.find_element_by_id('wifiadvancesetparent_menuId').click()
-                sleep(2)
-                self.driver.find_element_by_id('wlanadvance_menuId').click()
-                sleep(1)
                 self.driver.find_element_by_id('wlan_mode_ctrl_selectlist_childselect').click()
                 sleep(1)
                 self.driver.find_element_by_id('b/g/n_BigSelectBoxItemID').click()
@@ -181,18 +172,22 @@ class Configuration(object):
                 sleep(1)
                 self.driver.find_element_by_id('20_BigSelectBoxItemID').click()
                 sleep(1)
-            elif hz == '40/20':
+            elif hz == '20/40':
                 self.driver.find_element_by_id('wifi_bind_set_ctrl_selectlist_childselect').click()
                 sleep(1)
                 self.driver.find_element_by_id('20_40_BigSelectBoxItemID').click()
+                sleep(1)
+            elif hz == '40':
+                self.driver.find_element_by_id('wifi_bind_set_ctrl_selectlist_childselect').click()
+                sleep(1)
+                self.driver.find_element_by_id('40_BigSelectBoxItemID').click()
                 sleep(1)
 
             self.driver.find_element_by_id('SendSettings_submitbutton').click()
             sleep(5)
             return True
-        except Exception as e:
+        except:
             to_log('WiFi频宽设置Failed')
-            print(e)
             return False
 
     # WiFi隐藏设置
@@ -213,9 +208,8 @@ class Configuration(object):
             self.driver.find_element_by_id('SendSettings_submitbutton').click()
             sleep(5)
             return True
-        except Exception as e:
+        except:
             to_log('WiFi隐藏设置Failed')
-            print(e)
             return False
 
     # WiFi不隐藏设置
@@ -235,9 +229,8 @@ class Configuration(object):
             self.driver.find_element_by_id('SendSettings_submitbutton').click()
             sleep(5)
             return True
-        except Exception as e:
+        except:
             to_log('WiFi不隐藏设置Failed')
-            print(e)
             return False
 
     def finished(self):

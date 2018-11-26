@@ -5,7 +5,7 @@ from to_log import to_log
 
 
 # wifi配置
-def wifi_mode(name, pwd, ss_id=False, pr='', **dh: 'key: dh,ip,mask,gw,dns'):
+def wifi_mode(name, pwd, wait_time=1, ss_id=False, pr='', **dh):
     try:
         driver = webdriver.Firefox()
         driver.maximize_window()
@@ -36,7 +36,7 @@ def wifi_mode(name, pwd, ss_id=False, pr='', **dh: 'key: dh,ip,mask,gw,dns'):
             driver.find_element_by_id('gw').send_keys(dh.get('gw', ''))
             driver.find_element_by_id('dns').send_keys(dh.get('dns', ''))
         driver.find_element_by_id('btn').click()
-        sleep(1)
+        sleep(wait_time)
         driver.close()
     except:
         to_log('网络配置码生成失败！')
