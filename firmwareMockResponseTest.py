@@ -2,7 +2,7 @@
 import time
 from pywinauto import Desktop
 from to_log import to_log
-from findCoordinate import click_action, fill_in_text
+from findCoordinate import *
 from configFile import configuration
 
 
@@ -45,6 +45,9 @@ def mock_scanned_code_api():
             click_action(cw, left=1, top=1)
             to_log('文件：' + str(i) + '.txt已测试\n')
             i += 1
+        # 清掉旧的请求
+        click_action(window, left=30, top=110)
+        pyautogui.press('delete')
 
     return None
 
@@ -74,6 +77,9 @@ def mock_refund_api():
             click_action(cw, left=1, top=1)
             to_log('文件：' + 'refund' + str(i) + '.txt已测试\n')
             i += 1
+        # 清掉旧的请求
+        click_action(window, left=30, top=110)
+        pyautogui.press('delete')
 
     return None
 
