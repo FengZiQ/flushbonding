@@ -2,7 +2,7 @@
 
 configuration = {
     # 升级设备
-    'upgradeDeviceNo': '4126180500100018',
+    'upgradeDeviceNo': '4113180400129090',
     # 扫码成功率测试设备及测试次数
     'scanDeviceNo': '4126180500100018',
     'scanTestTime': 3,
@@ -17,8 +17,6 @@ configuration = {
     'spServer': 'http://spadmin.2dupay.com/',
     # cas server
     'casServer': 'http://cas.2dupay.com/',
-    # mock data path
-    'mockDataPath': r'D:/script/flushbonding/apiResponse/',
 }
 
 # 固件配网cases的测试数据
@@ -72,7 +70,7 @@ def open_picture(picture_name):
 
 
 # 一定时间内检查网络配置是否成功
-def check_network_config_if_success(want_time):
+def check_network_config_if_success(want_time, device_no=data_for_networkTest.get('deviceNo')):
     import time
     from dmSupport import get_device_attribute
     from to_log import to_log
@@ -83,7 +81,7 @@ def check_network_config_if_success(want_time):
             # 获取系统当前时间
             ts = time.strftime('%Y-%m-%d %H-%M-%S', time.localtime(time.time()))
             # 获取设备属性
-            da = get_device_attribute(data_for_networkTest.get('deviceNo'))
+            da = get_device_attribute(device_no)
             # 修正时间
             ct = ts[:-4] + str(int(ts[-4]) + 1)
             if da.get('time', 'failed')[:-3] == ts[:-3] or da.get('time', 'failed')[:-3] == ct:
