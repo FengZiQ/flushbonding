@@ -12,22 +12,22 @@ configuration = {
     # 图片地址
     'filePath': r'D:/script/flushbonding/',
     # dm server
-    'dmServer': 'http://dm.inspos.cn/',
+    'dmServer': 'http://dm.preo.inspos.cn/',
     # sp server
-    'spServer': 'http://spadmin.2dupay.com/',
+    'spServer': 'http://spadmin.preo.2dupay.com/',
     # cas server
-    'casServer': 'http://cas.2dupay.com/',
+    'casServer': 'http://cas.preo.2dupay.com/',
 }
 
 # 固件配网cases的测试数据
 data_for_networkTest = {
-    'deviceNo': '4126180500100018',
+    'deviceNo': '4113180400130999',
     'ip': '192.168.233.215',
     'mask': '255.255.255.0',
     'gw': '192.168.233.1',
     'dns': '192.168.233.1',
-    'mobileWifiName': '张张的 iPhone',
-    'mobileWifiPwd': 'ien1oiws00uzv',
+    'mobileWifiName': 'fzq',
+    'mobileWifiPwd': '123456789',
 }
 
 # 固件升级cases的测试数据

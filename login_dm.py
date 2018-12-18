@@ -24,8 +24,8 @@ def login_api():
         url2 = configuration['casServer'] + 'login?'
         cookies1 = content1.cookies.values()
         data = {
-            'username': 'gaoyanhua',
-            'password': 'gaoyanhua',
+            'username': 'admin',
+            'password': '123321qwe',
             'lt': ticket,
             'execution': 'e1s1',
             '_eventId': 'submit',

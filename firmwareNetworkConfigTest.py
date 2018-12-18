@@ -1,14 +1,14 @@
 # coding=utf-8
 
-#设备属性上传
-import firmwareIssueTest
+# # 设备属性上传
+import deviceAttributeUpload
 
 # LAN方式网络配置
-# import lanDhcpUsb, lanDhcp, lanStaticIP, lanStaticIpUsb
+import lanDhcpUsb, lanDhcp, lanStaticIP, lanStaticIpUsb
 
 # WIFI方式DHCP、非DHCP，加密、混合加密
-import wifiDhcpUsb, wifiDhcpWPA2
-# import wifiStaticIpUsb, wifiStaticIpWPA_WPA2
+import wifiDhcpUsb, wifiDhcpWPA2, wifiStaticIpUsb, wifiStaticIpWPA_WPA2
+
 # WIFI不同信道、模式、频宽
 import wifiChannelChange, wifiModeChange, wifiBandwidthChange
 
@@ -25,4 +25,4 @@ import wifiOfMobile
 import wifiBreakAndReconnection
 
 # 3G网络配置
-# import g3Dhcp, g3DhcpUsb
+import g3Dhcp, g3DhcpUsb

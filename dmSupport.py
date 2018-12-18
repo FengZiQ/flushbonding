@@ -185,8 +185,8 @@ def user_defined_config(config_id, device_id, device_no):
             configuration['dmServer'] + 'deviceIsBindParamList/modify',
             json={
                 "paramListId": str(config_id),
-                "deviceIds":[str(device_id)],
-                "serialNums":[device_no],
+                "deviceIds": [str(device_id)],
+                "serialNums": [device_no],
                 "type": "2"
             }
         )
@@ -196,5 +196,5 @@ def user_defined_config(config_id, device_id, device_no):
 
 
 if __name__ == "__main__":
-    pass
+    print(get_device_info('4113180400130999'))
 
