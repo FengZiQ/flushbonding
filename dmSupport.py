@@ -27,7 +27,7 @@ def get_device_attribute(device_no):
         )
         temp = json.loads(res.text)['data']['data']
         result = json.loads(temp)
-        dm_session.close()
+        # dm_session.close()
         return result
     except:
         to_log('\n获取设备属性失败\n')
@@ -181,7 +181,7 @@ def device_and_self_common_config(self_cc_id, action_type, device_id, device_no)
 # 自定义通用配置下发
 def user_defined_config(config_id, device_id, device_no):
     try:
-        dm_session.post(
+        a = dm_session.post(
             configuration['dmServer'] + 'deviceIsBindParamList/modify',
             json={
                 "paramListId": str(config_id),
@@ -190,11 +190,11 @@ def user_defined_config(config_id, device_id, device_no):
                 "type": "2"
             }
         )
-        dm_session.close()
+        # dm_session.close()
     except:
         to_log('自定义通用配置下发失败')
 
 
 if __name__ == "__main__":
-    print(get_device_info('4113180400130999'))
+    pass
 

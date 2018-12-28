@@ -12,11 +12,11 @@ configuration = {
     # 图片地址
     'filePath': r'D:/script/flushbonding/',
     # dm server
-    'dmServer': 'http://dm.preo.inspos.cn/',
+    'dmServer': 'http://dm.inspos.cn/',
     # sp server
-    'spServer': 'http://spadmin.preo.2dupay.com/',
+    'spServer': 'http://spadmin.2dupay.com/',
     # cas server
-    'casServer': 'http://cas.preo.2dupay.com/',
+    'casServer': 'http://cas.2dupay.com/',
 }
 
 # 固件配网cases的测试数据

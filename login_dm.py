@@ -24,8 +24,8 @@ def login_api():
         url2 = configuration['casServer'] + 'login?'
         cookies1 = content1.cookies.values()
         data = {
-            'username': 'admin',
-            'password': '123321qwe',
+            'username': 'fengziqi',
+            'password': 'inspiry110',
             'lt': ticket,
             'execution': 'e1s1',
             '_eventId': 'submit',
@@ -41,7 +41,7 @@ def login_api():
         )
         location = content2.headers['location']
         session.get(location)
-        # userInfo = session.get(configuration['dmServer'] + 'userInfo')
+        userInfo = session.get(configuration['dmServer'] + 'userInfo')
 
         return session
     except:
