@@ -14,4 +14,4 @@ else:
 device_info = get_device_info(data_for_networkTest.get('deviceNo', ''))
 
 # 自定义通用配置参数下发
-user_defined_config(custom_common_config_id, device_info['id'], device_info.get('serialNum', ''))
+issue_user_defined_config(custom_common_config_id, device_info['id'], device_info.get('serialNum', ''))

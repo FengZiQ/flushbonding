@@ -1,7 +1,5 @@
 # coding=utf-8
 
-# # 设备属性上传
-import deviceAttributeUpload
 
 # LAN方式网络配置
 import lanDhcpUsb, lanDhcp, lanStaticIP, lanStaticIpUsb

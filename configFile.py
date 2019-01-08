@@ -49,10 +49,10 @@ data_for_paymentTest = {
 
 # 下发相关cases测试数据
 data_for_issueTest = {
-    'deviceNo': '4126180500100018',
-    'customerName': 'LWY测试',
-    'parameterConfig': '测试_fengziqi',
-    'userDefinedCommonConfig': 'LWY测试串口键盘、数据上传、音量、inspiry、查账',
+    'deviceNo': '4113180400130999',
+    'customerName': '测试账户INSPOS',
+    'paraConfigName': 'test_fengziqi',
+    'userDefineConfigName': '测试_fengziqi'
 }
 
 

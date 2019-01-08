@@ -110,7 +110,13 @@ def scanned():
             "user_order_no": "GP396905625412531520"
         }
     else:
-        return {}
+        return {
+            "code": "FAIL",
+            "msg": "需要用户输入支付密码",
+            "pp_trade_no": "18c041456160c9053006",
+            "sub_code": "USERPAYING",
+            "sub_msg": "需要用户输入支付密码"
+        }
 
 
-bottle.run(host='192.168.20.94', port=8883)
+bottle.run(host='192.168.120.100', port=8886)

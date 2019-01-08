@@ -47,14 +47,19 @@ if __name__ == "__main__":
         [
             '/home/qa/script/paymentStressTest/cn/cn_paymentStressTest.log',
             '/home/qa/script/paymentStressTest/en/en_paymentStressTest.log',
-            '/home/qa/script/paymentStressTest/jp/jp_paymentStressTest.log'
+            '/home/qa/script/paymentStressTest/jp/jp_paymentStressTest.log',
+            '/home/qa/script/paymentStressTest/standScanCode/CnPaymentLog.log',
+            '/home/qa/script/paymentStressTest/standScanCode/EnPaymentLog.log',
+            '/home/qa/script/paymentStressTest/standScanCode/JpPaymentLog.log',
+            '/home/qa/script/paymentStressTest/standScanCode/KoPaymentLog.log',
         ]
     )
     rewrite_file(
         [
             '/home/qa/script/paymentStressTest/cn/nohup.out',
             '/home/qa/script/paymentStressTest/en/nohup.out',
-            '/home/qa/script/paymentStressTest/jp/nohup.out'
+            '/home/qa/script/paymentStressTest/jp/nohup.out',
+            '/home/qa/script/paymentStressTest/standScanCode/nohup.out'
         ]
     )
 

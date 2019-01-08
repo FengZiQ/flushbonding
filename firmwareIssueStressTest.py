@@ -1,6 +1,6 @@
 # coding=utf-8
 import time
-from dmSupport import get_device_attribute, user_defined_config
+from dmSupport import get_device_attribute, issue_user_defined_config
 
 
 # 写测试log
@@ -22,7 +22,7 @@ count = 0
 for i in range(10):
     device_att = get_device_attribute('4113180400131017')
     if '下发稳定性测试1' in device_att.get('send.test1', ''):
-        user_defined_config('2127', '2767390', '4113180400131017')
+        issue_user_defined_config('2127', '2767390', '4113180400131017')
         time.sleep(10)
         count += 1
         temp0 = get_device_attribute('4113180400131017')
@@ -31,7 +31,7 @@ for i in range(10):
         else:
             to_log('第' + str(count) + '次下发成功-_-')
     elif '下发稳定性测试2' in device_att.get('send.test1', ''):
-        user_defined_config('2126', '2767390', '4113180400131017')
+        issue_user_defined_config('2126', '2767390', '4113180400131017')
         time.sleep(10)
         count += 1
         temp1 = get_device_attribute('4113180400131017')
@@ -40,7 +40,7 @@ for i in range(10):
         else:
             to_log('第' + str(count) + '次下发成功-_-')
     else:
-        user_defined_config('2126', '2767390', '4113180400131017')
+        issue_user_defined_config('2126', '2767390', '4113180400131017')
         time.sleep(10)
         count += 1
         temp2 = get_device_attribute('4113180400131017')
