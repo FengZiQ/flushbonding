@@ -203,5 +203,4 @@ def issue_user_defined_config(config_id, device_id, device_no):
 
 
 if __name__ == "__main__":
-    get_self_common_config_info(get_self_common_config_id('POS通'))
-
+    print(get_device_info('4113180400130999'))

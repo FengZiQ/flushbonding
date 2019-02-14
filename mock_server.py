@@ -28,7 +28,7 @@ def scannedCode():
 def refund():
     global refundIndex
     refundIndex += 1
-    print('返回response为：\n' + refundResponseData[scannedCodeIndex])
+    print('返回response为：\n' + refundResponseData[refundIndex])
     return refundResponseData[refundIndex]
 
 

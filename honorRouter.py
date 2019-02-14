@@ -233,6 +233,15 @@ class Configuration(object):
             to_log('WiFi不隐藏设置Failed')
             return False
 
+    # 重新登录
+    def re_login(self):
+        try:
+            self.driver.find_element_by_id('loginbtn').click()
+            sleep(5)
+        except:
+            pass
+
+    # 退出
     def finished(self):
-        self.driver.close()
+        self.driver.quit()
 

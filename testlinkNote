@@ -1,0 +1,23 @@
+有线网络+DHCP+USB
+相关配置信息：
+xx
+xx
+xx
+xx
+"result": "@PASS@"
+
+有线网络+静态IP+USB
+相关配置信息：
+xx
+xx
+xx
+xx
+"result": "@FAIL@"
+
+wifi+DHCP+USP
+相关配置信息：
+xx
+xx
+xx
+xx
+"result": "@PASS@"

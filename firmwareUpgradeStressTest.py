@@ -7,7 +7,7 @@ from dmSupport import get_device_attribute, send_upgrade_cmd
 passCount = 0
 failCount = 0
 to_log('***升级成功率测试***')
-for i in range(2):
+for i in range(20):
     # 获取升级前的设备属性
     a0 = get_device_attribute(configuration['upgradeDeviceNo'])
     to_log('第' + str(i+1) + '次升级前版本为：' + a0.get('sys.software.version', ''))
