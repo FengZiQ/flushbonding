@@ -59,5 +59,4 @@ def query():
         }
 
 
-
 bottle.run(host='192.168.20.94', port=8885)
