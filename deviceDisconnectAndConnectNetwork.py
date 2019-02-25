@@ -60,8 +60,7 @@ while True:
                 '盒子断网，平台设备状态为已连接',
                 '问题设备：\n' + str(bug_device1),
                 [
-                    'fengziqi@inspiry.cn',
-                    'wanghuaqiang@inspiry.cn'
+                    'fengziqi@inspiry.cn'
                 ]
             )
         # 若设备连接状态正常，恢复网络，等5min，再次断网

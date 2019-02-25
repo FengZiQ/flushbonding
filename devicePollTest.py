@@ -23,7 +23,9 @@ def query():
     count += 1
     print('第' + str(count) + '轮询')
     print(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
-    if count == 12:
+    # 第4次返回支付成功消息
+    if count == 4:
+        print('第4次返回支付成功消息')
         return {
             "buyer_pay_fee": "1",
             "channel_type": "ALIPAY",
@@ -40,7 +42,9 @@ def query():
             "transaction_id": "2018112322001402501015842257",
             "user_order_no": "P387137821445425600"
         }
-    elif count == 13:
+    # 第3次返回支付失败消息
+    if count == 7:
+        print('第3次返回支付失败消息')
         return {
             "code": "FAIL",
             "msg": "101 付款码无效，请重新扫码",
@@ -49,14 +53,15 @@ def query():
             "sub_code": "AUTH_CODE_INVALID|FAIL",
             "sub_msg": "101 付款码无效，请重新扫码"
         }
-    else:
-        return {
-            "code": "FAIL",
-            "msg": "需要用户输入支付密码",
-            "pp_trade_no": "18c041456160c9053006",
-            "sub_code": "USERPAYING",
-            "sub_msg": "需要用户输入支付密码"
-        }
+    if count == 14:
+        print('第6次轮询仍然没有返回支付结果')
+    return {
+        "code": "FAIL",
+        "msg": "需要用户输入支付密码",
+        "pp_trade_no": "18c041456160c9053006",
+        "sub_code": "USERPAYING",
+        "sub_msg": "需要用户输入支付密码"
+    }
 
 
 bottle.run(host='192.168.20.94', port=8885)
