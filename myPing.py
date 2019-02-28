@@ -38,4 +38,4 @@ def get_link_state(ip):
 
 
 if __name__ == "__main__":
-    print(get_link_state('192.168.233.68'))
+    print(get_link_state('baidu.com'))
