@@ -1,0 +1,96 @@
+2019-03-27 15:15:54: logcat
+--------- beginning of /dev/log_main
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+I/NetSystem::NetMonitor(  107): 
+I/NetSystem::NetMonitor(  107): [threadLoop():519] [timestamp: 1553670893] Ping server: http://ping.2dupay.com now ...
+I/PPbutlerNet(  107): [httpGet():127] [timestamp: 1553670894] http return code = 0, http return string = No error
+I/PPbutlerNet(  107): [httpGet():135] [timestamp: 1553670894] http getinfo return : result = 0
+I/PPbutlerNet(  107): [httpGet():136] [timestamp: 1553670894] http getinfo return : http status code = 200
+I/NetSystem::NetMonitor(  107): [threadLoop():522] [timestamp: 1553670894] ret = 1
+I/NetSystem::NetMonitor(  107): [threadLoop():524] [timestamp: 1553670894] OK. Ping return true
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+I/NetSystem::NetMonitor(  107): 
+I/NetSystem::NetMonitor(  107): [threadLoop():519] [timestamp: 1553670909] Ping server: http://ping.2dupay.com now ...
+I/PPbutlerNet(  107): [httpGet():127] [timestamp: 1553670909] http return code = 0, http return string = No error
+I/PPbutlerNet(  107): [httpGet():135] [timestamp: 1553670909] http getinfo return : result = 0
+I/PPbutlerNet(  107): [httpGet():136] [timestamp: 1553670909] http getinfo return : http status code = 200
+I/NetSystem::NetMonitor(  107): [threadLoop():522] [timestamp: 1553670909] ret = 1
+I/NetSystem::NetMonitor(  107): [threadLoop():524] [timestamp: 1553670909] OK. Ping return true
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+I/NetSystem::NetMonitor(  107): 
+I/NetSystem::NetMonitor(  107): [threadLoop():519] [timestamp: 1553670924] Ping server: http://ping.2dupay.com now ...
+I/PPbutlerNet(  107): [httpGet():127] [timestamp: 1553670924] http return code = 0, http return string = No error
+I/PPbutlerNet(  107): [httpGet():135] [timestamp: 1553670924] http getinfo return : result = 0
+I/PPbutlerNet(  107): [httpGet():136] [timestamp: 1553670924] http getinfo return : http status code = 200
+I/NetSystem::NetMonitor(  107): [threadLoop():522] [timestamp: 1553670924] ret = 1
+I/NetSystem::NetMonitor(  107): [threadLoop():524] [timestamp: 1553670924] OK. Ping return true
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+I/NetSystem::NetMonitor(  107): 
+I/NetSystem::NetMonitor(  107): [threadLoop():519] [timestamp: 1553670939] Ping server: http://ping.2dupay.com now ...
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+I/PPbutlerNet(  107): [httpGet():127] [timestamp: 1553670939] http return code = 0, http return string = No error
+I/PPbutlerNet(  107): [httpGet():135] [timestamp: 1553670939] http getinfo return : result = 0
+I/PPbutlerNet(  107): [httpGet():136] [timestamp: 1553670939] http getinfo return : http status code = 200
+I/NetSystem::NetMonitor(  107): [threadLoop():522] [timestamp: 1553670939] ret = 1
+I/NetSystem::NetMonitor(  107): [threadLoop():524] [timestamp: 1553670939] OK. Ping return true
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+W/UsbPrintDevice(  107): usb printer select timeout
+W/UsbPrintDevice(  107): Start Usb monitor Task!
+
+2019-03-27 15:14:52: logcat -c
+
+root@Inspiry:~# 
+2019-03-27 15:14:47: 
+
+login[303]: root login on 'console'
+
+
+root@Inspiry:~# 
+2019-03-27 15:14:42: root
+
+Password: 
+2019-03-27 15:14:37: 
+
+Inspiry login: 
+
+
+Login timed out after 60 seconds
+
+
+Inspiry login: 

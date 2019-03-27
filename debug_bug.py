@@ -2,16 +2,30 @@
 import bottle
 
 
-@bottle.route('/scannedCode', method='POST')
+@bottle.route('/api/scannedCode', method='POST')
 def scanned():
 
     return {
-        "code": "FAIL",
-        "msg": "需要用户输入支付密码",
-        "pp_trade_no": "18c041456160c9053006",
-        "sub_code": "USERPAYING",
-        "sub_msg": "需要用户输入支付密码"
+
     }
 
 
-bottle.run(host='192.168.20.94', port=8883)
+@bottle.route('/api/refund', method='POST')
+def scanned():
+
+    return {
+        "channel_type":"ALIPAY_GLOBAL",
+        "code":"SUCCESS",
+        "msg":"SUCCESS",
+        "out_refund_no":"GR431667973693325568",
+        "pay_type":"ALIPAY",
+        "printType":0,
+        "receipt":"T3JkZXJObzogR1A0MzE2Njc1MzAzNTkyMTU2ODAKVHJhbnNhY3Rpb25JZDogMjAxOTAzMjYyMjAwMTQwMjUwMDU2MzcyNzkxOApUaW1lOiAyMDE5LTAzLTI2IDE0OjQwOjUzClRvdGFsRmVlOiAzLjAwClBheUZlZTogMC4xOApEaXNjb3VudEZlZTogMi44MgpEZXZpY2VObzogMjIxMTE2MDkwMDAwNTg2NQpQYXlUeXBlOiBBTElQQVkKQ3VzdG9tZXJOYW1lOiBmenFtZAoKUmVmdW5kRmVlOiAzLjAwClJlZnVuZE5vOiBHUjQzMTY2Nzk3MzY5MzMyNTU2OAoK",
+        "refundCurrency":"JPY",
+        "refund_fee":300,
+        "time":"2019-03-26 14:40:52",
+        "user_order_no":"GP431667530359215680"
+    }
+
+
+bottle.run(host='10.10.11.131', port=8885)

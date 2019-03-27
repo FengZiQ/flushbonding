@@ -25,7 +25,7 @@ def login_api():
         cookies1 = content1.cookies.values()
         data = {
             'username': 'fengziqi',
-            'password': 'inspiry110',
+            'password': 'Inspiry123',
             'lt': ticket,
             'execution': 'e1s1',
             '_eventId': 'submit',

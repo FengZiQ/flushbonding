@@ -2,7 +2,7 @@
 
 configuration = {
     # 升级设备
-    'upgradeDeviceNo': '4113180400130999',
+    'upgradeDeviceNo': '4113190300115191',
     # 扫码成功率测试设备及测试次数
     'scanDeviceNo': '4126180500100018',
     'scanTestTime': 3,

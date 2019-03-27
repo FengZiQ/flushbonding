@@ -104,4 +104,16 @@ def query():
     }
 
 
+@bottle.route('/api/deviceBillSummary', method='POST')
+def device_bill():
+    return {
+        "code": "SUCCESS",
+        "msg": "SUCCESS",
+        "total_pay_amt": 5,
+        "total_pay_count": 4,
+        "total_refund_amt": 2,
+        "total_refund_count": 2
+    }
+
+
 bottle.run(host='192.168.20.94', port=8885)
