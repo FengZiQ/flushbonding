@@ -6,7 +6,22 @@ import bottle
 def scanned():
 
     return {
-
+        "bid_currency":"JPY",
+        "buyer_pay_fee":"300",
+        "channel_type":"ONEPAY",
+        "code":"SUCCESS",
+        "customer_name":"fzqmd",
+        "msg":"SUCCESS",
+        "pay_currency":"JPY",
+        "pay_type":"ALIPAY",
+        "pp_trade_no":"15535867268514532P",
+        "printType":0,
+        "real_fee":"300",
+        "settlement_currency":"JPY",
+        "time_end":"2019-03-26 15:52:10",
+        "total_fee":300,
+        "transaction_id":"J1AP20190326165209275857",
+        "user_order_no":"GP431685904842500928"
     }
 
 
@@ -28,4 +43,4 @@ def scanned():
     }
 
 
-bottle.run(host='10.10.11.131', port=8885)
+bottle.run(host='10.10.44.56', port=8885)
