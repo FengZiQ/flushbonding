@@ -17,12 +17,12 @@ def scanned():
     req = bottle.request.json
     try:
         # 开始被扫支付测试
-        if sc_count == 9:
+        if sc_count == 6:
             print('\n被扫支付测试')
-        if sc_count >= 9:
+        if sc_count >= 7:
             print('支付请求body:\n' + str(req) + '\n')
         # 前3次被扫支付触发轮询
-        if sc_count <= 8:
+        if sc_count <= 5:
             return {
                 "code": "FAIL",
                 "msg": "需要用户输入支付密码",
@@ -107,31 +107,7 @@ def query_order():
             "sub_code": "NOTPAY|ORDER_CANCELED",
             "sub_msg": "订单未支付"
         }
-    if qr_count in [x for x in range(6, 13)]:
-        print('轮询时服务器异常。测试触发撤单')
-        if qr_count == 6:
-            print('服务器返回了未定义的values')
-            return {
-                "code": "ERROR",
-                "msg": "ERROR",
-                "pp_trade_no": "ERROR",
-                "printType": 'ERROR',
-                "sub_code": "ERROR",
-                "sub_msg": "ERROR"
-            }
-        if qr_count == 7:
-            print('服务器返回了未定义的key')
-            return {"ERROR": "ERROR"}
-        if qr_count == 8:
-            print('服务器返回了空值')
-            return {}
-        if qr_count == 9:
-            print('服务器500 error')
-            print('0' + 0)
-        if qr_count in [10, 11, 12]:
-            print('请求200，但无返回')
-            pass
-    if qr_count >= 13:
+    if qr_count >= 6:
         return {
             "code": "FAIL",
             "msg": "需要用户输入支付密码",
@@ -143,38 +119,9 @@ def query_order():
 
 @bottle.route('/api/cancel/order', method='POST')
 def cancel_order():
-    # 测试不同场景flag
-    global co_count
-    co_count += 1
-    # 请求体
+    # 打印撤单请求体
     req = bottle.request.json
     print('撤单请求body:\n' + str(req) + '\n')
-    if co_count == 1:
-        print('订单已撤销')
-        return {
-            "code": "FAIL",
-            "msg": "order already closed",
-            "printType": 0,
-            "sub_code": "ORDERCLOSED",
-            "sub_msg": "order already closed"
-        }
-    if co_count == 2:
-        print('订单不存在')
-        return {
-            "code": "FAIL",
-            "msg": "order does not exist",
-            "printType": 0,
-            "sub_code": "ORDERCLOSED",
-            "sub_msg": "order does not exist"
-        }
-    if co_count == 3:
-        print('未知错误')
-        return {
-            "code": "FAIL",
-            "sub_msg": "FAIL"
-        }
-    if co_count >= 4:
-        print('订单撤销成功')
     return {
         "code": "SUCCESS",
         "msg": "SUCCESS"
@@ -183,15 +130,15 @@ def cancel_order():
 
 @bottle.route('/api/deviceBillSummary', method='POST')
 def device_bill_summary():
-    # 请求体
+    # 打印设备账单查询请求体
     req = bottle.request.json
     print('设备账单查询请求body:\n' + str(req) + '\n')
     return {
         "code": "SUCCESS",
         "msg": "SUCCESS",
-        "total_pay_amt": 5,
+        "total_pay_amt": 999999900,
         "total_pay_count": 4,
-        "total_refund_amt": 2,
+        "total_refund_amt": 900,
         "total_refund_count": 2
     }
 
@@ -201,7 +148,7 @@ def refund():
     # 测试不同场景flag
     global rf_count
     rf_count += 1
-    # 请求体
+    # 打印退款请求体
     req = bottle.request.json
     print('退款请求body:\n' + str(req) + '\n')
 
