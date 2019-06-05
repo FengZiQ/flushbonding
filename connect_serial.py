@@ -85,7 +85,7 @@ if __name__ == '__main__':
     # pass
     begin()
     execute_cmd('logcat -c')
-    receipt_more('logcat', end_receipt_time=10)
+    receipt_more('logcat', end_receipt_word='Inspiry login:')
 
 
 

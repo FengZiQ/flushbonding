@@ -2,7 +2,7 @@
 
 configuration = {
     # 升级设备
-    'upgradeDeviceNo': '4113190300115191',
+    'upgradeDeviceNo': '4134190500100001',
     # 扫码成功率测试设备及测试次数
     'scanDeviceNo': '4126180500100018',
     'scanTestTime': 3,
@@ -32,7 +32,7 @@ data_for_networkTest = {
 
 # 固件升级cases的测试数据
 data_for_upgradeTest = {
-    'deviceNo': '4126180500100018',
+    'deviceNo': '4134190500100001',
     'fwPBeforeName': 'A5公版4.1.0.5',
     'fwPBeforeVersion': '4.1.0.5',
     'fwPCurrentName': 'A5公版4.1.0.8',

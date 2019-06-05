@@ -245,10 +245,10 @@ def refund():
     rf_count += 1
     # 退款异常测试开始
     if rf_count == 1:
-        print('\n设备账单查询异常测试\n')
+        print('\n退款异常测试\n')
     # 打印退款请求body
     req = bottle.request.json
-    print('设备账单查询请求body:\n' + str(req) + '\n')
+    print('退款请求body:\n' + str(req) + '\n')
     if rf_count == 1:
         print('\n返回未定义的values')
         return {
@@ -294,4 +294,4 @@ def refund():
         }
 
 
-bottle.run(host='192.168.20.94', port=8885)
+bottle.run(host='192.168.1.100', port=8881)

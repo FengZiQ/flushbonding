@@ -31,20 +31,20 @@ def scanned():
                 "sub_msg": "需要用户输入支付密码"
             }
         return {
-            "buyer_pay_fee": req.get('total_fee', ''),
-            "channel_type": "ALIPAY",
-            "code": "SUCCESS",
-            "customer_name": "sh1m1хнР",
-            "msg": "SUCCESS",
-            "pay_type": "ALIPAY",
-            "pp_trade_no": "P154296563600",
-            "printType": 1,
-            "real_fee": req.get('total_fee', ''),
-            "receipt": "tqm1pbHgusU6IDIwMTgxMTIzMjIwMDE0MDI1MDEwMTU4NDIyNTcKvbvS18qxvOQ6IDIwMTgtMTEtMjMgMTc6MzM6NTcK19wgvfAgtu46IDAuMDEKyrW4tr3wtu46IDAuMDEK08W73b3wtu46IDAuMDAKyeixuLHgusU6IDQxMTMxODA0MDAxMjg4MDAKvbvS18Dg0M06INanuLaxpgrJzLunw/uzxjogc2gxbTHX0wqyu7LO0+vTxbvdvfC27jogMC4wMAoKCg==",
-            "time_end": "2018-11-23 17:33:57",
-            "total_fee": req.get('total_fee', ''),
-            "transaction_id": "2018112322001402501015842257",
-            "user_order_no": "P387137821445425600"
+            "buyer_pay_fee":str(req.get('total_fee', '')),
+            "channel_type":"WXPAY",
+            "code":"SUCCESS",
+            "customer_name":"sh1m1子",
+            "msg":"SUCCESS",
+            "pay_type":"WXPAY",
+            "pp_trade_no":"15561771177476001P",
+            "printType":1,
+            "real_fee": str(req.get('total_fee', '')),
+            "receipt":"tqm1pbHgusU6IDQyMDAwMDAzMTYyMDE5MDQyNTg5MDIwODE1OTEKvbvS18qxvOQ6IDIwMTktMDQtMjUgMTU6MjU6MjcK19y98LbuOiAwLjAxCsq1uLa98LbuOiAwLjAxCtPFu9298LbuOiAwLjAwCsnosbix4LrFOiA0MTEzMTgwNDAwMTMwOTk5Cr270tfA4NDNOiDOotDFCsnMu6fD+7PGOiBzaDFtMdfTCrK7ss7T69PFu9298LbuOiAwLjAwCgoK",
+            "time_end":"2019-04-25 15:25:25",
+            "total_fee":req.get('total_fee', ''),
+            "transaction_id":"4200000316201904258902081591",
+            "user_order_no":"P442550801724158976"
         }
     except Exception as e:
         print(e)
@@ -69,20 +69,20 @@ def query_order():
     if qr_count == 2:
         print('第2次返回支付成功消息')
         return {
-            "buyer_pay_fee": "100",
-            "channel_type": "ALIPAY",
-            "code": "SUCCESS",
-            "customer_name": "sh1m1хнР",
-            "msg": "SUCCESS",
-            "pay_type": "ALIPAY",
-            "pp_trade_no": "P154296563600",
-            "printType": 100,
-            "real_fee": "100",
-            "receipt": "tqm1pbHgusU6IDIwMTgxMTIzMjIwMDE0MDI1MDEwMTU4NDIyNTcKvbvS18qxvOQ6IDIwMTgtMTEtMjMgMTc6MzM6NTcK19wgvfAgtu46IDAuMDEKyrW4tr3wtu46IDAuMDEK08W73b3wtu46IDAuMDAKyeixuLHgusU6IDQxMTMxODA0MDAxMjg4MDAKvbvS18Dg0M06INanuLaxpgrJzLunw/uzxjogc2gxbTHX0wqyu7LO0+vTxbvdvfC27jogMC4wMAoKCg==",
-            "time_end": "2018-11-23 17:33:57",
-            "total_fee": 100,
-            "transaction_id": "2018112322001402501015842257",
-            "user_order_no": "P387137821445425600"
+            "buyer_pay_fee":"100",
+            "channel_type":"WXPAY",
+            "code":"SUCCESS",
+            "customer_name":"sh1m1子",
+            "msg":"SUCCESS",
+            "pay_type":"WXPAY",
+            "pp_trade_no":"15561771177476001P",
+            "printType":1,
+            "real_fee":"100",
+            "receipt":"tqm1pbHgusU6IDQyMDAwMDAzMTYyMDE5MDQyNTg5MDIwODE1OTEKvbvS18qxvOQ6IDIwMTktMDQtMjUgMTU6MjU6MjcK19y98LbuOiAwLjAxCsq1uLa98LbuOiAwLjAxCtPFu9298LbuOiAwLjAwCsnosbix4LrFOiA0MTEzMTgwNDAwMTMwOTk5Cr270tfA4NDNOiDOotDFCsnMu6fD+7PGOiBzaDFtMdfTCrK7ss7T69PFu9298LbuOiAwLjAwCgoK",
+            "time_end":"2019-04-25 15:25:25",
+            "total_fee":100,
+            "transaction_id":"4200000316201904258902081591",
+            "user_order_no":"P442550801724158976"
         }
     # 轮询时，订单查询接口第三方接口返回的错误消息
     if qr_count == 3:
@@ -107,11 +107,11 @@ def query_order():
             "sub_code": "NOTPAY|ORDER_CANCELED",
             "sub_msg": "订单未支付"
         }
-    if qr_count >= 6:
+    if qr_count >= 6 or qr_count == 4:
         return {
             "code": "FAIL",
             "msg": "需要用户输入支付密码",
-            "pp_trade_no": "18c041456160c9053006",
+            "pp_trade_no": "18c041456160c905300",
             "sub_code": "USERPAYING",
             "sub_msg": "需要用户输入支付密码"
         }
@@ -155,46 +155,42 @@ def refund():
     if rf_count == 1:
         print('覆盖打印')
         return {
-            "channel_type": "ONEPAY",
+            "channel_type": "WXPAY",
             "code": "SUCCESS",
             "msg": "SUCCESS",
-            "out_refund_no": "GR431686068318822912",
-            "pay_type": "ALIPAY",
+            "out_refund_no": "GR437099612317680896",
+            "pay_type": "WXPAY",
             "printType": 1,
-            "receipt": "T3JkZXJObzogR1A0MzE2ODU5MDQ4NDI1MDA5MjgKVHJhbnNhY3Rpb25JZDogSjFBUDIwMTkwMzI2MTY1MjA5Mjc1ODU3ClRpbWU6IDIwMTktMDMtMjYgMTU6NTI6NDkKVG90YWxGZWU6IDMuMDAKUGF5RmVlOiAzLjAwCkRpc2NvdW50RmVlOiAwLjAwCkRldmljZU5vOiA0MTQwMTkwMjAwMTAwMDM2ClBheVR5cGU6IEFMSVBBWQpDdXN0b21lck5hbWU6IGZ6cW1kCgpSZWZ1bmRGZWU6IDMuMDAKUmVmdW5kTm86IEdSNDMxNjg2MDY4MzE4ODIyOTEyCgo=",
-            "refundCurrency": "JPY",
-            "refund_fee": req.get('refund_fee', ''),
-            "time": "2019-03-26 15:52:47",
-            "user_order_no": "GP431685904842500928"
+            "refund_fee": req.get('refund_fee', 100),
+            "time": "2019-04-10 13:24:16",
+            "user_order_no": "GP437098913521119040",
+            "receipt": "T3JkZXJObzogR1A0MzE2ODU5MDQ4NDI1MDA5MjgKVHJhbnNhY3Rpb25JZDogSjFBUDIwMTkwMzI2MTY1MjA5Mjc1ODU3ClRpbWU6IDIwMTktMDMtMjYgMTU6NTI6NDkKVG90YWxGZWU6IDMuMDAKUGF5RmVlOiAzLjAwCkRpc2NvdW50RmVlOiAwLjAwCkRldmljZU5vOiA0MTQwMTkwMjAwMTAwMDM2ClBheVR5cGU6IEFMSVBBWQpDdXN0b21lck5hbWU6IGZ6cW1kCgpSZWZ1bmRGZWU6IDMuMDAKUmVmdW5kTm86IEdSNDMxNjg2MDY4MzE4ODIyOTEyCgo="
         }
     if rf_count == 2:
         print('追加打印')
         return {
-            "channel_type": "ONEPAY",
+            "channel_type": "WXPAY",
             "code": "SUCCESS",
             "msg": "SUCCESS",
-            "out_refund_no": "GR431686068318822912",
-            "pay_type": "ALIPAY",
-            "printType": 3,
-            "receipt": "T3JkZXJObzogR1A0MzE2ODU5MDQ4NDI1MDA5MjgKVHJhbnNhY3Rpb25JZDogSjFBUDIwMTkwMzI2MTY1MjA5Mjc1ODU3ClRpbWU6IDIwMTktMDMtMjYgMTU6NTI6NDkKVG90YWxGZWU6IDMuMDAKUGF5RmVlOiAzLjAwCkRpc2NvdW50RmVlOiAwLjAwCkRldmljZU5vOiA0MTQwMTkwMjAwMTAwMDM2ClBheVR5cGU6IEFMSVBBWQpDdXN0b21lck5hbWU6IGZ6cW1kCgpSZWZ1bmRGZWU6IDMuMDAKUmVmdW5kTm86IEdSNDMxNjg2MDY4MzE4ODIyOTEyCgo=",
-            "refundCurrency": "JPY",
-            "refund_fee": req.get('refund_fee', ''),
-            "time": "2019-03-26 15:52:47",
-            "user_order_no": "GP431685904842500928"
+            "out_refund_no": "GR437099612317680896",
+            "pay_type": "WXPAY",
+            "printType": 2,
+            "refund_fee": req.get('refund_fee', 100),
+            "time": "2019-04-10 13:24:16",
+            "user_order_no": "GP437098913521119040",
+            "receipt": "T3JkZXJObzogR1A0MzE2ODU5MDQ4NDI1MDA5MjgKVHJhbnNhY3Rpb25JZDogSjFBUDIwMTkwMzI2MTY1MjA5Mjc1ODU3ClRpbWU6IDIwMTktMDMtMjYgMTU6NTI6NDkKVG90YWxGZWU6IDMuMDAKUGF5RmVlOiAzLjAwCkRpc2NvdW50RmVlOiAwLjAwCkRldmljZU5vOiA0MTQwMTkwMjAwMTAwMDM2ClBheVR5cGU6IEFMSVBBWQpDdXN0b21lck5hbWU6IGZ6cW1kCgpSZWZ1bmRGZWU6IDMuMDAKUmVmdW5kTm86IEdSNDMxNjg2MDY4MzE4ODIyOTEyCgo="
         }
     return {
-        "channel_type": "ONEPAY",
+        "channel_type": "WXPAY",
         "code": "SUCCESS",
         "msg": "SUCCESS",
-        "out_refund_no": "GR431686068318822912",
-        "pay_type": "ALIPAY",
+        "out_refund_no": "GR437099612317680896",
+        "pay_type": "WXPAY",
         "printType": 0,
-        "receipt": "T3JkZXJObzogR1A0MzE2ODU5MDQ4NDI1MDA5MjgKVHJhbnNhY3Rpb25JZDogSjFBUDIwMTkwMzI2MTY1MjA5Mjc1ODU3ClRpbWU6IDIwMTktMDMtMjYgMTU6NTI6NDkKVG90YWxGZWU6IDMuMDAKUGF5RmVlOiAzLjAwCkRpc2NvdW50RmVlOiAwLjAwCkRldmljZU5vOiA0MTQwMTkwMjAwMTAwMDM2ClBheVR5cGU6IEFMSVBBWQpDdXN0b21lck5hbWU6IGZ6cW1kCgpSZWZ1bmRGZWU6IDMuMDAKUmVmdW5kTm86IEdSNDMxNjg2MDY4MzE4ODIyOTEyCgo=",
-        "refundCurrency": "JPY",
-        "refund_fee": req.get('refund_fee', ''),
-        "time": "2019-03-26 15:52:47",
-        "user_order_no": "GP431685904842500928"
+        "refund_fee": req.get('refund_fee', 100),
+        "time": "2019-04-10 13:24:16",
+        "user_order_no": "GP437098913521119040"
     }
 
 
-bottle.run(host='192.168.20.94', port=8885)
+bottle.run(host='192.168.1.100', port=8881)

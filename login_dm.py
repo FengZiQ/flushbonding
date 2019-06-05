@@ -41,7 +41,7 @@ def login_api():
         )
         location = content2.headers['location']
         session.get(location)
-        userInfo = session.get(configuration['dmServer'] + 'userInfo')
+        # userInfo = session.get(configuration['dmServer'] + 'userInfo')
 
         return session
     except:
